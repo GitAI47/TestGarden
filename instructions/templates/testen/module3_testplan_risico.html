@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% block title %}Module 3 – Testplan & Risicoanalyse{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 3" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('instructions.testen_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 3 – Testplan & Risicoanalyse</h1>
+
+    <p class="intro">
+        In deze module leer je de basis van een lichtgewicht testplan. 
+        Geen dikke documenten, maar een praktische samenvatting van: 
+        <strong>wat gaan we testen, waarom, hoe en wanneer is het goed?</strong>
+    </p>
+
+
+    <!-- --- WAT IS EEN TESTPLAN ------------------------------------------------ -->
+    <section>
+        <h2>1. Wat is een testplan?</h2>
+
+        <p>
+            Een testplan is een kort document dat richting geeft aan het testen. 
+            Het beschrijft <strong>wat er getest moet worden</strong>, 
+            <strong>welke risico’s belangrijk zijn</strong> 
+            en <strong>welke aanpak gekozen wordt</strong>.
+        </p>
+
+        <p>
+            In moderne projecten (en zeker in Testgarden) maken we testplannen 
+            zo eenvoudig mogelijk: 1 pagina is meestal genoeg.
+        </p>
+
+        <div class="example-box">
+            <h3>Een testplan bevat meestal:</h3>
+            <ul>
+                <li>Scope — wat testen we wel en wat niet?</li>
+                <li>Belangrijkste risico’s</li>
+                <li>Aanpak — smoke, testcases, exploratief</li>
+                <li>Testomgeving</li>
+                <li>Entry & Exit criteria</li>
+                <li>Rollen — wie doet wat?</li>
+            </ul>
+        </div>
+    </section>
+
+
+
+    <!-- --- RISICOANALYSE ------------------------------------------------------ -->
+    <section>
+        <h2>2. Wat is risicogestuurd testen?</h2>
+
+        <p>
+            Risico’s helpen je beslissen welke onderdelen het belangrijkst zijn om te testen.  
+            Een risico ontstaat wanneer een <strong>mogelijke fout</strong> 
+            gecombineerd wordt met <strong>impact</strong>.
+        </p>
+
+        <p>
+            We gebruiken een simpele formule:
+        </p>
+
+        <div class="formula-box">
+            <strong>Risico = kans × impact</strong>
+        </div>
+
+        <p>
+            Hoe hoger het risico, hoe meer aandacht een onderdeel nodig heeft in je testplan.
+        </p>
+
+        <div class="example-box">
+            <h3>Voorbeeld webshop</h3>
+            <p>
+                Pagina “Product bekijken” → lage impact  
+                Pagina “Afrekenen” → hoge impact  
+                Dus: afrekenen krijgt meer en diepere tests.
+            </p>
+        </div>
+    </section>
+
+
+
+    <!-- --- CHECKLIST ---------------------------------------------------------- -->
+    <section>
+        <h2>3. Voorbeeld van een 1-pagina testplan</h2>
+
+        <p>
+            Gebruik dit als basis wanneer je zelf een testplan maakt:
+        </p>
+
+<pre class="code-block">
+Titel: Testplan voor [onderdeel/app]
+Datum:
+Auteur:
+
+1. Scope:
+   - Wat testen we wel?
+   - Wat testen we niet?
+
+2. Belangrijkste risico’s:
+   - R1: [risico + reden]
+   - R2: [risico + reden]
+
+3. Aanpak:
+   - Smoke tests
+   - Testcases
+   - Exploratory testing
+
+4. Testomgeving:
+   - URL, data, accounts
+
+5. Entry criteria:
+   - Build werkt, testdata beschikbaar
+
+6. Exit criteria:
+   - Geen P1/P0 bugs open
+   - Smoke test geslaagd
+
+7. Rollen:
+   - Tester(s)
+   - Begeleider / Product owner
+</pre>
+
+    </section>
+
+
+
+    <!-- --- PRAKTIJKOPDRACHT --------------------------------------------------- -->
+    <section>
+        <h2>4. Praktijkopdracht: Maak je eigen mini-testplan</h2>
+
+        <p>
+            Je gaat nu voor het eerst zelf een testplan schrijven voor een klein onderdeel 
+            van de demo-app.
+        </p>
+
+        <h3>Opdracht</h3>
+        <ol>
+            <li>Kies één onderdeel van de demo-app (bijv. “registratie”).</li>
+            <li>Identificeer 3 risico’s (kans × impact).</li>
+            <li>Omschrijf wat je gaat testen (<em>scope</em>).</li>
+            <li>Kies je aanpak (smoke, testcases, exploratief).</li>
+            <li>Vul het 1-pagina testplansjabloon volledig in.</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Tip:</strong> Hou het kort, overzichtelijk en praktisch. 
+            Een testplan is geen verslag — het is je kompas.
+        </div>
+    </section>
+
+
+
+    <!-- --- REFLECTIE ---------------------------------------------------------- -->
+    <section>
+        <h2>5. Reflectie</h2>
+
+        <p>
+            Denk na over jouw testplan:
+        </p>
+
+        <ul>
+            <li>Welke risico’s waren het belangrijkst?</li>
+            <li>Wat heb je níet in scope gezet, en waarom?</li>
+            <li>Zou je meer of minder detail willen toevoegen?</li>
+        </ul>
+    </section>
+
+
+
+    <!-- --- NAVIGATIE ------------------------------------------------------------ -->
+    <nav class="module-navigation">
+    <a href="{{ url_for('instructions.testen_module2') }}">← Vorige module</a>
+
+
+    <a class="next-module" href="{{ url_for('instructions.testen_module4') }}">
+    Volgende module →
+    </a>
+    </nav>
+<div>
+
+{% endblock %}

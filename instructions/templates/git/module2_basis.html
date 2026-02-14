@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+{% block title %}Module 2 – Git Basics: Repositories, Clonen & Commits{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 2" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('instructions.git_overview') }}">git</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+    <!-- --- Inhoud komt hieronder ------------------------------------------------------------ -->
+    <div class="module-container">
+
+    <h1>Module 2 — Git Basics: Repositories, Clonen & Commits</h1>
+
+    <p class="intro">
+        In deze module ga je leren wat een repository is, hoe je een project 
+        <strong>cloned</strong> naar je eigen laptop, en hoe je je 
+        <strong>eerste commit</strong> maakt.  
+        Dit is de praktische start van werken met Git.
+    </p>
+
+
+    <!-- --- WAT IS EEN REPOSITORY ------------------------------------------------------- -->
+    <section>
+        <h2>1. Wat is een repository?</h2>
+
+        <p>
+            Een <strong>repository</strong> (ook wel “repo”) is een map waarin Git 
+            alle bestanden én alle geschiedenis van een project bewaart.
+        </p>
+
+        <p>Een repo bevat onder andere:</p>
+
+        <ul>
+            <li>alle projectbestanden</li>
+            <li>de volledige commitgeschiedenis</li>
+            <li>informatie over branches</li>
+        </ul>
+
+        <p>
+            In deze Git-Garden leeromgeving gaan we een speciale oefenrepo gebruiken:
+        </p>
+
+        <div class="example-box">
+            <strong>Oefenrepository:</strong><br>
+            <code>git-garden-playground</code>  
+            <br>*(dit is de repo die jij als cursist gebruikt om alles in te oefenen)*  
+        </div>
+    </section>
+
+
+    <!-- --- CLONEN ---------------------------------------------------------------------- -->
+    <section>
+        <h2>2. Wat is clonen?</h2>
+
+        <p>
+            <strong>Clonen</strong> betekent dat je een kopie van een GitHub-repo downloadt 
+            naar jouw laptop.  
+            Vanaf dat moment werk je lokaal, met je eigen tijdmachine (Git).
+        </p>
+
+        <p>
+            Clonen doe je maar één keer. Daarna werk je telkens in dezelfde lokale map.
+        </p>
+
+        <div class="example-box">
+            <h3>Voorbeeld</h3>
+            <p>
+                Je clone’t de repository <code>git-garden-playground</code>.  
+                Op je computer verschijnt een map met dezelfde naam.  
+                Alles wat je daar verandert, wordt door Git gevolgd.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- --- COMMITS --------------------------------------------------------------------- -->
+    <section>
+        <h2>3. Wat is een commit?</h2>
+
+        <p>
+            Een <strong>commit</strong> is een momentopname van je project.  
+            Je maakt een commit wanneer je een kleine, logische stap hebt afgerond.
+        </p>
+
+        <p>Elke commit bevat:</p>
+
+        <ul>
+            <li>welke bestanden zijn aangepast</li>
+            <li>welke regels zijn toegevoegd of verwijderd</li>
+            <li>een beschrijving (commit message)</li>
+            <li>de naam van de persoon die de commit maakte</li>
+        </ul>
+
+        <p>
+            Een goede commit message begint vaak met een korte samenvatting zoals:
+        </p>
+
+        <ul>
+            <li><code>Add introduction text</code></li>
+            <li><code>Fix broken link</code></li>
+            <li><code>Update README formatting</code></li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>  
+            Maak commits in kleine stapjes.  
+            Zo blijft je werk overzichtelijk, en kunnen anderen begrijpen wat je hebt gedaan.
+        </div>
+    </section>
+
+
+    <!-- --- BRANCHES --------------------------------------------------------------------- -->
+    <section>
+        <h2>4. Wat zijn branches?</h2>
+
+        <p>
+            Een <strong>branch</strong> is een zijtak van het project waarin je veilig 
+            kunt experimenteren zonder de hoofdversie kapot te maken.
+        </p>
+
+        <p>De belangrijkste branch heet meestal:</p>
+        <ul>
+            <li><code>main</code></li>
+            <li>of <code>master</code></li>
+        </ul>
+
+        <p>
+            Wanneer je iets wilt aanpassen of testen, maak je meestal een nieuwe 
+            branch, zoals:
+        </p>
+
+        <ul>
+            <li><code>update-readme</code></li>
+            <li><code>add-testfile</code></li>
+            <li><code>fix-typo</code></li>
+        </ul>
+
+        <p>
+            Dit werkt als een zandbak waar jij kunt bouwen zonder dat iemand anders last heeft 
+            van jouw wijzigingen.
+        </p>
+    </section>
+
+
+
+    <!-- --- PRAKTIJKOPDRACHT ------------------------------------------------------------ -->
+    <section>
+        <h2>5. Praktijkopdracht: Clone en maak je eerste commit</h2>
+
+        <p>
+            Nu ga je zelf aan de slag in de echte oefenrepository.
+            Dit is je eerste échte Git-actie in de Git Garden!
+        </p>
+
+        <h3>Opdracht</h3>
+        <ol>
+            <li>Ga naar GitHub en open de repo <code>git-garden-playground</code>.</li>
+            <li>Klik op <strong>“Code”</strong> en kopieer de clone-URL.</li>
+            <li>Open je terminal en typ:
+                <pre>git clone &lt;URL&gt;</pre>
+            </li>
+            <li>Open de map op je computer en maak een nieuw tekstbestand:
+                <br><code>hello-garden.txt</code>
+            </li>
+            <li>Voeg één regel toe:
+                <br><code>Dit is mijn eerste commit in de Git Garden.</code>
+            </li>
+            <li>Sla het bestand op en maak je commit:
+                <pre>
+git add .
+git commit -m "My first Git Garden commit"
+                </pre>
+            </li>
+        </ol>
+
+        <p>
+            Je hebt nu officieel je eerste “zaadje” geplant in de Git Garden.
+        </p>
+    </section>
+
+
+
+    <!-- --- KORTE QUIZ --------------------------------------------------------------- -->
+    <section>
+        <h2>6. Korte Quiz</h2>
+
+        <p>Beantwoord de drie vragen om te checken of de basis blijft hangen:</p>
+
+        <ol>
+            <li>
+                Wat is het doel van clonen?<br>
+                <em>(a) Een lokale kopie maken van een GitHub-project)</em>
+            </li>
+            <li>
+                Wat bevat een commit?<br>
+                <em>(b) Een snapshot van wijzigingen + een beschrijving)</em>
+            </li>
+            <li>
+                Wat is een branch?<br>
+                <em>(c) Een veilige tak om wijzigingen in te testen)</em>
+            </li>
+        </ol>
+    </section>
+
+
+    <!-- --- Inhoud eidigt hier ------------------------------------------------------------ -->
+
+    <!-- --- NAVIGATIE ------------------------------------------------------------ -->
+    <nav class="module-navigation">
+    <a href="{{ url_for('instructions.git_module1') }}">← Terug naar overzicht</a>
+
+    <a class="next-module" href="{{ url_for('instructions.git_module3') }}">
+    Volgende module →
+    </a>
+    </nav>
+<div>
+
+{% endblock %}

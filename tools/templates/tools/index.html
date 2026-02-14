@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Tools</h1>
+
+<p>
+  Hulpmiddelen voor testers om sneller, consistenter en bewuster te werken.
+</p>
+
+<hr>
+
+<h2>Beschikbare tools</h2>
+
+<ul>
+  <li>
+    <strong>
+      <a href="{{ url_for('tools.qrcode_page') }}">
+        QR-code generator
+      </a>
+    </strong><br>
+    <small>
+      Genereer QR-codes voor snelle toegang tot testomgevingen
+      op iPads en mobiele devices.
+    </small>
+  </li>
+</ul>
+
+{% endblock %}

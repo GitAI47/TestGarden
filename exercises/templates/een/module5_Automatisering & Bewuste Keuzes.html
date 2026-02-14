@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block title %}Module 5 – Automatisering & Bewuste Keuzes{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 5" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('exercises.een_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 5 — Automatisering & Bewuste Keuzes</h1>
+
+    <p class="intro">
+        Niet alles wat testbaar is, moet geautomatiseerd worden.  
+        Niet alles wat geautomatiseerd kan worden, <strong>zou</strong> geautomatiseerd moeten worden.
+    </p>
+
+    <section>
+        <h2>1. De mythe van “alles automatiseren”</h2>
+
+        <div class="tip-box">
+            <strong>Automatisering vergroot kracht — maar ook fouten.</strong>
+        </div>
+
+        <p>
+            Slechte tests geautomatiseerd = sneller slechte informatie.
+        </p>
+    </section>
+
+    <section>
+        <h2>2. Wat is wél geschikt voor automatisering?</h2>
+
+        <ul>
+            <li>Stabiele flows</li>
+            <li>Herhaalbare tests</li>
+            <li>Regressietests</li>
+            <li>Smoke tests</li>
+            <li>Datavalidatie</li>
+        </ul>
+
+        <div class="example-box">
+            <strong>Vuistregel:</strong><br>
+            Hoe voorspelbaarder het gedrag, hoe beter te automatiseren.
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Wat is níet geschikt voor automatisering?</h2>
+
+        <ul>
+            <li>UX-beleving</li>
+            <li>Look & feel</li>
+            <li>Exploratory testing</li>
+            <li>Nieuwe features</li>
+            <li>Vage problemen</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Mensen testen betekenis. Machines testen herhaling.</strong>
+        </div>
+    </section>
+
+    <section>
+        <h2>4. Oefening A — Classificeren</h2>
+
+        <p>
+            Neem 10 tests uit je regression set (Module 4) en label ze:
+        </p>
+
+        <ul>
+            <li><strong>A</strong> = geschikt voor automatisering</li>
+            <li><strong>M</strong> = menselijk testen</li>
+            <li><strong>H</strong> = hybride (mens + tool)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. Oefening B — Mini automatiseringsstrategie</h2>
+
+        <p>
+            Maak een mini-strategie (1 pagina):
+        </p>
+
+        <ul>
+            <li>Wat automatiseer je eerst?</li>
+            <li>Waarom juist die?</li>
+            <li>Wat automatiseer je bewust niet?</li>
+            <li>Welke risico’s heeft automatisering hier?</li>
+        </ul>
+
+        <div class="example-box">
+            <strong>Voorbeeld:</strong><br>
+            “Login-flow automatiseren voor regressie, maar checkout UX handmatig testen.”
+        </div>
+    </section>
+
+    <section>
+        <h2>6. Tools als verlengstuk (niet als vervanging)</h2>
+
+        <p>
+            Tools versterken je waarneming:
+        </p>
+
+        <ul>
+            <li>DevTools</li>
+            <li>Network tab</li>
+            <li>Logfiles</li>
+            <li>Monitoring</li>
+            <li>Automatisering</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>De tester blijft altijd de denker.</strong>
+        </div>
+    </section>
+
+    <section>
+        <h2>7. Reflectie</h2>
+
+        <ol>
+            <li>Waar zou automatisering jou juist blind maken?</li>
+            <li>Waar zou het je juist kracht geven?</li>
+            <li>Wat mag nooit volledig geautomatiseerd worden?</li>
+        </ol>
+    </section>
+
+    <nav class="module-navigation">
+        <a href="{{ url_for('exercises.een_module4') }}">← Vorige module</a>
+        <a class="next-module" href="{{ url_for('exercises.een_module6') }}">Volgende module →</a>
+    </nav>
+<div>
+
+{% endblock %}

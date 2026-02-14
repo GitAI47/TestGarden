@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+{% block title %}Module 8 – Automatisering & AI Testing{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 8" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('instructions.testen_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 8 – Automatisering & AI Testing</h1>
+
+    <p class="intro">
+        In deze module maak je kennis met twee belangrijke ontwikkelingen in het moderne testen:
+        <strong>testautomatisering</strong> en <strong>AI Testing</strong>.
+        Je leert wat automatisering wel (en niet!) kan, wat de rol van de tester blijft
+        en hoe je AI-systemen kritisch en bewust test.
+    </p>
+
+
+
+    <!-- --- DE ROL VAN AUTOMATISERING ----------------------------------------- -->
+    <section>
+        <h2>1. Wat is testautomatisering?</h2>
+
+        <p>
+            Testautomatisering betekent dat bepaalde tests door scripts of tools worden uitgevoerd 
+            in plaats van handmatig door een tester.
+        </p>
+
+        <p>
+            Vaak gaat het om:
+        </p>
+
+        <ul>
+            <li><strong>Smoke tests</strong> – werkt de basis?</li>
+            <li><strong>Regressietests</strong> – blijft alles werken na updates?</li>
+            <li><strong>End-to-end flows</strong> – klikflows door de app heen</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Welke tests automatiseer je?</h3>
+            <ul>
+                <li>Herhalende tests (bij elke build)</li>
+                <li>Tests die veel tijd kosten</li>
+                <li>Tests die foutgevoelig zijn als je ze handmatig doet</li>
+            </ul>
+            <p>
+                Wat automatiseer je níet?  
+                Exploratory testing, usability, gevoel, empathie — daarvoor heb je mensen nodig.
+            </p>
+        </div>
+    </section>
+
+
+
+    <!-- --- TOOLS -------------------------------------------------------------- -->
+    <section>
+        <h2>2. Tools voor automatisering</h2>
+
+        <p>
+            De meest gebruikte tools voor testautomatisering zijn:
+        </p>
+
+        <ul>
+            <li><strong>Playwright</strong> – modern, snel, ideaal voor web</li>
+            <li><strong>Selenium</strong> – klassieker, werkt met browsers</li>
+            <li><strong>Cypress</strong> – populair bij frontend-teams</li>
+        </ul>
+
+        <p>
+            Automatisering gaat over het laten uitvoeren van acties zoals:
+        </p>
+        <ul>
+            <li>Open de pagina</li>
+            <li>Vul een formulier in</li>
+            <li>Klik op “login”</li>
+            <li>Controleer of een element zichtbaar is</li>
+        </ul>
+    </section>
+
+
+
+    <!-- --- KLEIN SCRIPT -------------------------------------------------------- -->
+    <section>
+        <h2>3. Voorbeeld: een simpel Playwright-script</h2>
+
+<pre class="code-block">
+import { test, expect } from '@playwright/test';
+
+test('kan inloggen', async ({ page }) => {
+  await page.goto('https://example.com/login');
+  await page.fill('#username', 'testuser');
+  await page.fill('#password', 'Test1234');
+  await page.click('#login-button');
+  await expect(page).toHaveURL('https://example.com/dashboard');
+});
+</pre>
+
+        <p>
+            Elk onderdeel is te begrijpen:
+        </p>
+        <ul>
+            <li>Ga naar de pagina</li>
+            <li>Vul de velden in</li>
+            <li>Klik op de knop</li>
+            <li>Controleer of de gebruiker is ingelogd</li>
+        </ul>
+    </section>
+
+
+
+    <!-- --- WAT KAN AI ---------------------------------------------------------- -->
+    <section>
+        <h2>4. AI in testen: kansen en uitdagingen</h2>
+
+        <p>
+            AI wordt steeds meer gebruikt bij testen, bijvoorbeeld om:
+        </p>
+        <ul>
+            <li>suggesties te doen voor testcases</li>
+            <li>visuele regressie te analyseren</li>
+            <li>logs te interpreteren</li>
+            <li>foutpatronen te herkennen</li>
+        </ul>
+
+        <p>
+            Maar AI is geen magisch wondermiddel.
+            Je hebt als tester altijd een menselijke rol:
+        </p>
+        <ul>
+            <li>context begrijpen</li>
+            <li>ethiek beoordelen</li>
+            <li>gebruikerservaring inschatten</li>
+            <li>bias ontdekken</li>
+            <li>randgevallen testen</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>AI ondersteunt de tester, maar vervangt hem niet.</strong>
+            De tester blijft verantwoordelijk voor begrip, kwaliteit en empathie.
+        </div>
+    </section>
+
+
+
+    <!-- --- TESTEN VAN AI -------------------------------------------------------- -->
+    <section>
+        <h2>5. Hoe test je AI-systemen?</h2>
+
+        <p>
+            AI-systemen gedragen zich anders dan normale software.
+            Ze zijn minder voorspelbaar en afhankelijk van data.
+        </p>
+
+        <p>
+            Daarom test je AI op:
+        </p>
+
+        <ul>
+            <li><strong>Data-kwaliteit</strong> – klopt de input?</li>
+            <li><strong>Bias</strong> – behandelt het systeem groepen eerlijk?</li>
+            <li><strong>Drift</strong> – verandert gedrag door nieuwe data?</li>
+            <li><strong>Robuustheid</strong> – wat gebeurt er bij rare input?</li>
+            <li><strong>Explainability</strong> – begrijp je waarom iets gebeurt?</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Voorbeeld: een recommender AI testen</h3>
+            <ul>
+                <li>Geeft het systeem steeds dezelfde persoon dezelfde producten?</li>
+                <li>Hoe reageert het op extreme of rare input?</li>
+                <li>Is de output logisch en uitlegbaar?</li>
+                <li>Zijn er patronen van vooroordelen (“bias”)?</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+
+    <!-- --- PRAKTIJKOPDRACHT --------------------------------------------------- -->
+    <section>
+        <h2>6. Praktijkopdracht: AI-functie testen</h2>
+
+        <p>
+            Je gaat nu nadenken als een AI-tester.
+        </p>
+
+        <h3>Opdracht</h3>
+        <ol>
+            <li>Kies een AI-functie (bijv. een chatbot, image recognizer of recommender).</li>
+            <li>Bedenk 5 tests:
+                <ul>
+                    <li>twee normale</li>
+                    <li>twee extremen of randgevallen</li>
+                    <li>één fairness/bias test</li>
+                </ul>
+            </li>
+            <li>Schrijf per test:
+                <ul>
+                    <li>input</li>
+                    <li>verwacht gedrag</li>
+                    <li>werkelijk gedrag</li>
+                </ul>
+            </li>
+            <li>Reflecteer: is het gedrag voorspelbaar en eerlijk?</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>AI testen is creatief werk.</strong>  
+            Het gaat om begrijpen, observeren, vergelijken en vragen stellen.
+        </div>
+    </section>
+
+
+
+    <!-- --- REFLECTIE ---------------------------------------------------------- -->
+    <section>
+        <h2>7. Reflectie</h2>
+
+        <ul>
+            <li>Welke test vond je het moeilijkst?</li>
+            <li>Welk gedrag verraste je?</li>
+            <li>Welke risico's zie jij bij AI in de praktijk?</li>
+            <li>Hoe ziet jouw rol als tester eruit in een wereld met AI?</li>
+        </ul>
+    </section>
+
+
+
+    <!-- --- NAVIGATIE ----------------------------------------------------------- -->
+    <nav class="module-navigation">
+    <a href="{{ url_for('instructions.testen_module7') }}">← Vorige module</a>
+
+
+    <a class="next-module" href="{{ url_for('instructions.testen_module9') }}">
+    Volgende module →
+    </a>
+    </nav>
+<div>
+
+{% endblock %}

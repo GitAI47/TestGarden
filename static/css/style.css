@@ -1,0 +1,835 @@
+/* ============================================================
+   TESTGARDEN – BASIS THEMA SYSTEEM (met verbeterde styling)
+   ============================================================ */
+
+/* Algemene font & layout basis */
+:root {
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 14px;
+    --content-max-width: 1200px;
+    --border-radius: 4px;
+    --box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+
+    /* fallback kleuren */
+    --bg: #f9f9f9;
+    --bg-alt: #ecf0f1;
+    --nav-bg: #2c3e50;
+    --card-bg: #ffffff;
+    --text: #333;
+    --text-soft: #7f8c8d;
+    --accent: #3498db;
+    --accent-soft: #d6eaf8;
+    --accent-strong: #2980b9;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --border-subtle: #ddd;
+    --shadow-soft: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* -------- THEMA: GARDEN LIGHT (default) -------- */
+html[data-theme="garden-light"] {
+    --bg: #f3f8f3;
+    --bg-alt: #e5f1e6;
+    --nav-bg: #2c3e50;
+    --card-bg: #ffffff;
+    --text: #333;
+    --text-soft: #7f8c8d;
+    --accent: #3498db;
+    --accent-soft: #d6eaf8;
+    --accent-strong: #2980b9;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --border-subtle: #c2dac8;
+    --shadow-soft: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* -------- THEMA: SAND (warm & rustig) -------- */
+html[data-theme="sand"] {
+    --bg: #fbf6ef;
+    --bg-alt: #f2e6d7;
+    --nav-bg: #8b7355;
+    --card-bg: #ffffff;
+    --text: #3f3428;
+    --text-soft: #7a6d5d;
+    --accent: #c28b4b;
+    --accent-soft: #f3dfc3;
+    --accent-strong: #9b6a32;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --border-subtle: #e1d2c1;
+    --shadow-soft: 0 2px 10px rgba(120, 100, 75, 0.16);
+}
+
+/* -------- THEMA: MODERN (licht & strak) -------- */
+html[data-theme="modern"] {
+    --bg: #f5f7fb;
+    --bg-alt: #e2e7f2;
+    --nav-bg: #151b26;
+    --card-bg: #ffffff;
+    --text: #151b26;
+    --text-soft: #697286;
+    --accent: #356fba;
+    --accent-soft: #d6e3fb;
+    --accent-strong: #234a80;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --border-subtle: #c9d3e6;
+    --shadow-soft: 0 2px 10px rgba(21, 27, 38, 0.12);
+}
+
+/* -------- THEMA: GARDEN NIGHT (donker groen) -------- */
+html[data-theme="garden-night"] {
+    --bg: #101a13;
+    --bg-alt: #14231a;
+    --nav-bg: #17271e;
+    --card-bg: #1a2a21;
+    --text: #e0f0e3;
+    --text-soft: #9ab7a5;
+    --accent: #5cbf7a;
+    --accent-soft: #234231;
+    --accent-strong: #8ce9a9;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --border-subtle: #2a3e31;
+    --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================================================
+   BASIS LAYOUT & TYPOGRAFIE (vernieuwde styling)
+   ============================================================ */
+
+html {
+    font-size: var(--font-size-base);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+main.content {
+    max-width: var(--content-max-width);
+    margin: 2.5rem auto 3.5rem;
+    padding: 0 1.5rem;
+    line-height: 1.7;
+}
+
+/* Verbeterde typografie */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    color: var(--text);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 2.5rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+/* Verbeterde links */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--accent-strong);
+}
+
+/* ============================================================
+   NAVIGATIEBALK (met verbeterde styling)
+   ============================================================ */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--nav-bg);
+    padding: 0.75rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: var(--box-shadow);
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.brand span {
+    color: var(--accent);
+}
+
+.nav-center .nav-link {
+    font-weight: 500;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+}
+
+/* Desktop vs mobiel */
+.desktop-only {
+    display: flex;
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* ============================================================
+   BUTTONS (nieuwe verbeterde styling)
+   ============================================================ */
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--accent-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+}
+
+.btn-warning {
+    background-color: var(--warning-color);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+}
+
+.btn-outline:hover {
+    background-color: var(--accent);
+    color: white;
+}
+
+/* ============================================================
+   CARDS (nieuwe verbeterde styling)
+   ============================================================ */
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================================
+   TEST STATUS INDICATORS (nieuwe verbeterde styling)
+   ============================================================ */
+
+.status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status-passed {
+    background-color: rgba(39, 174, 96, 0.1);
+    color: var(--success-color);
+}
+
+.status-failed {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--danger-color);
+}
+
+.status-running {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--accent);
+}
+
+.status-pending {
+    background-color: rgba(243, 156, 18, 0.1);
+    color: var(--warning-color);
+}
+
+/* ============================================================
+   TEST RESULTS (nieuwe verbeterde styling)
+   ============================================================ */
+
+.test-result {
+    border-left: 4px solid;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.test-passed {
+    border-left-color: var(--success-color);
+}
+
+.test-failed {
+    border-left-color: var(--danger-color);
+}
+
+.test-warning {
+    border-left-color: var(--warning-color);
+}
+
+/* ============================================================
+   CODE BLOCKS (nieuwe verbeterde styling)
+   ============================================================ */
+
+.code-block {
+    background-color: #2d3748;
+    color: #e2e8f0;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+/* ============================================================
+   FORM ELEMENTS (verbeterde styling)
+   ============================================================ */
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: var(--card-bg);
+    color: var(--text);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* ============================================================
+   DROPDOWN MENU'S (aangepast voor nieuwe styling)
+   ============================================================ */
+
+.dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.dropdown-toggle {
+    border: none;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: var(--transition);
+}
+
+.dropdown-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 120%;
+    right: 0;
+    min-width: 210px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border-subtle);
+    padding: 0.5rem;
+    z-index: 100;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    margin: 0.25rem 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius);
+    background: transparent;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.96rem;
+    transition: var(--transition);
+}
+
+.dropdown-menu a:hover {
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+}
+
+.dropdown:hover > .dropdown-menu,
+.dropdown:focus-within > .dropdown-menu {
+    display: block;
+}
+
+/* ============================================================
+   THEMA SELECTOR & DARK/LIGHT KNOP (aangepast)
+   ============================================================ */
+
+.theme-select {
+    margin-left: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-subtle);
+    background: var(--card-bg);
+    color: var(--text);
+    outline: none;
+    cursor: pointer;
+}
+
+.theme-btn {
+    margin-left: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    border: none;
+    background: var(--card-bg);
+    color: var(--text);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.theme-btn:hover {
+    background: var(--accent-soft);
+}
+
+/* ============================================================
+   MOBIEL MENU (aangepast voor nieuwe styling)
+   ============================================================ */
+
+.hamburger {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+}
+
+.mobile-menu {
+    display: none;
+    background: var(--nav-bg);
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.mobile-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+}
+
+.mobile-menu hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0.5rem 0;
+}
+
+.mobile-theme-select {
+    margin-top: 0.75rem;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+/* Breakpoint */
+@media (max-width: 900px) {
+    .desktop-only {
+        display: none;
+    }
+    .mobile-only {
+        display: inline-flex;
+    }
+    .mobile-menu.open,
+    .mobile-menu.show {
+        display: block;
+    }
+}
+
+/* ============================================================
+   FLASH MESSAGES (verbeterde styling)
+   ============================================================ */
+
+.flash-messages {
+    max-width: var(--content-max-width);
+    margin: 1rem auto;
+    padding: 0;
+    list-style: none;
+}
+
+.flash-messages li {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.75rem;
+    background: var(--accent-soft);
+    color: var(--text);
+    border-left: 4px solid var(--accent);
+}
+
+.flash-messages li.success {
+    background: rgba(39, 174, 96, 0.1);
+    border-left-color: var(--success-color);
+}
+
+.flash-messages li.error {
+    background: rgba(231, 76, 60, 0.1);
+    border-left-color: var(--danger-color);
+}
+
+.flash-messages li.warning {
+    background: rgba(243, 156, 18, 0.1);
+    border-left-color: var(--warning-color);
+}
+
+/* ============================================================
+   FOOTER (verbeterde styling)
+   ============================================================ */
+
+.footer {
+    border-top: 1px solid var(--border-subtle);
+    padding: 2rem 1rem;
+    text-align: center;
+    background: var(--nav-bg);
+    color: white;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: var(--accent);
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================
+   LEARNING PATH (vernieuwde styling)
+   ============================================================ */
+
+.learning-path {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.learning-path .lead {
+    color: var(--text-soft);
+    margin-bottom: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.tile {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: var(--transition);
+}
+
+.tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.step-number {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.tile h2 {
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+}
+
+.tile .status {
+    margin-top: 0.5rem;
+}
+
+.open-btn {
+    margin-top: auto;
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius);
+    border: none;
+    background: var(--accent);
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.open-btn:hover {
+    background: var(--accent-strong);
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   FEEDBACK FORMULIER (vernieuwde styling)
+   ============================================================ */
+
+.feedback-container {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-subtle);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.feedback-container h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.feedback-form label {
+    display: block;
+    font-weight: 500;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.feedback-form textarea {
+    width: 100%;
+    min-height: 120px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-subtle);
+    padding: 0.75rem;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    background: var(--bg);
+    color: var(--text);
+    resize: vertical;
+    transition: var(--transition);
+}
+
+.feedback-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.feedback-btn {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    border: none;
+    background: var(--accent);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.feedback-btn:hover {
+    background: var(--accent-strong);
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   UTILITY CLASSES (nieuwe nuttige classes)
+   ============================================================ */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+/* --- Subtiele breadcrumb navigatie --- */
+.breadcrumb {
+    font-size: 0.85rem;
+    opacity: 0.65;
+    margin: 1rem 0 2rem 0;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    opacity: 0.95;
+}
+
+.breadcrumb span {
+    opacity: 0.6;
+}
+
+
+.module-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.module-navigation a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.module-navigation a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Testrun{% endblock %}
+{% block content %}
+
+<h1>Testrun #{{ run.id }}</h1>
+
+<form method="post">
+
+<table>
+<tr>
+  <th>Testcase</th>
+  <th>Status</th>
+  <th>Opmerking</th>
+</tr>
+# openen tabel in database
+{% for c in cases %}
+<tr>
+  <td>
+  <details>
+    <summary><strong>{{ c.key }}</strong> — {{ c.title }}</summary>
+
+    {% if c.preconditions %}
+      <p><em>Precondities:</em></p>
+      <ul>
+        {% for p in c.preconditions %}
+          <li>{{ p.text }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <ol>
+      {% for s in c.steps %}
+        <li style="margin-bottom:10px;">
+          <div><strong>Actie:</strong> {{ s.action }}</div>
+          <div><small><strong>Expected:</strong> {{ s.expected or "-" }}</small></div>
+
+          <div style="margin-top:6px; display:flex; gap:8px; align-items:center;">
+            <select name="step_status_{{ c.id }}_{{ s.step_no }}">
+              <option value="">--</option>
+              <option value="pass">Goed</option>
+              <option value="fail">Fout</option>
+              <option value="note">Goed met opmerking</option>
+              <option value="skip">Niet getest</option>
+            </select>
+
+            <input type="text"
+                   name="step_comment_{{ c.id }}_{{ s.step_no }}"
+                   placeholder="Opmerking (optioneel)"
+                   style="width:320px;">
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+
+
+
+
+  </details>
+
+</tr>
+{% endfor %}
+
+</table>
+
+<button type="submit">Opslaan</button>
+
+</form>
+
+{% endblock %}

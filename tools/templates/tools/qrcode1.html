@@ -1,0 +1,10 @@
+<h1>QR-code generator</h1>
+
+<form method="get" action="{{ url_for('tools.qrcode_page') }}">
+  <input type="text" name="data" value="{{ request.args.get('data', default_url) }}" style="width: 100%;">
+  <button type="submit">Genereer</button>
+</form>
+
+{% set data = request.args.get('data', default_url) %}
+<p>QR naar: <code>{{ data }}</code></p>
+<img src="{{ url_for('tools.qrcode_png', data=data) }}" alt="QR code">

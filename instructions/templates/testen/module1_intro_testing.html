@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% block title %}Module 1 – Wat is Testen?{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 1" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('instructions.testen_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 1 — Wat is Softwaretesten?</h1>
+
+    <p class="intro">
+        Welkom in de Testgarden! In deze eerste module leer je wat testen eigenlijk is,
+        waarom het zo belangrijk is en hoe jij als tester waarde toevoegt aan softwareprojecten.
+        Alles is praktisch, concreet en meteen toepasbaar.
+    </p>
+
+
+    <!-- --- WAT IS TESTEN ------------------------------------------------------- -->
+    <section>
+        <h2>1. Wat is softwaretesten?</h2>
+
+        <p>
+            Softwaretesten betekent: <strong>onderzoeken of software werkt zoals de gebruiker verwacht</strong>.
+            Je probeert fouten te vinden voordat de gebruikers dat doen. Een tester is eigenlijk een
+            professionele ontdekkingsreiziger met een kritische blik.
+        </p>
+
+        <ul>
+            <li>Je controleert of functies doen wat ze moeten doen.</li>
+            <li>Je denkt als een echte gebruiker (ook als die fouten maakt).</li>
+            <li>Je voorkomt frustratie, schade, tijdverlies en zelfs veiligheidsproblemen.</li>
+        </ul>
+
+        <p>
+            Testen is dus geen bijzaak — het is een essentieel onderdeel van softwarekwaliteit.
+        </p>
+    </section>
+
+
+
+    <!-- --- WAAROM IS HET BELANGRIJK -------------------------------------------- -->
+    <section>
+        <h2>2. Waarom is testen belangrijk?</h2>
+
+        <p>
+            Fouten in software kunnen grote gevolgen hebben. Van kleine irritaties
+            (een knop die niets doet) tot grote problemen (datalekken, kapotte transacties,
+            financiële schade).
+        </p>
+
+        <p>
+            Door vroeg te testen voorkom je problemen later. Een fout die in productie ontdekt wordt
+            kan wel <em>10 tot 100 keer duurder</em> zijn dan dezelfde fout die vroeg wordt ontdekt.
+        </p>
+
+        <div class="example-box">
+            <h3>Voorbeeld</h3>
+            <p>
+                Een webshop waar de betaalpagina niet werkt.  
+                → Klanten kopen niets → Het bedrijf loopt duizenden euro’s mis.  
+                Een simpele test had dit vroeg kunnen opsporen.
+            </p>
+        </div>
+    </section>
+
+
+
+    <!-- --- DE ROL VAN DE TESTER ------------------------------------------------- -->
+    <section>
+        <h2>3. De rol van de tester</h2>
+
+        <p>
+            Als tester ben je de bewaker van kwaliteit. Je werkt samen met ontwikkelaars, ontwerpers
+            en product owners. Jij ziet wat een gebruiker ziet.
+        </p>
+
+        <ul>
+            <li>Je stelt kritische vragen (“werkt dit echt zoals bedoeld?”).</li>
+            <li>Je denkt na over risico’s (“wat als deze pagina faalt?”).</li>
+            <li>Je maakt problemen duidelijk met goede bugreports.</li>
+        </ul>
+
+        <p>
+            Je hoeft geen programmeur te zijn. Je moet vooral nieuwsgierig, precies en creatief zijn.
+        </p>
+    </section>
+
+
+
+    <!-- --- PRAKTIJKOPDRACHT ----------------------------------------------------- -->
+    <section>
+        <h2>4. Praktijkopdracht: Bug Hunt!</h2>
+
+        <p>
+            Tijd om je tester-ogen te activeren! Je gaat 10 minuten op een bekende website zoeken
+            naar alles dat niet helemaal klopt.
+        </p>
+
+        <h3>Opdracht</h3>
+        <ol>
+            <li>Kies één van deze websites:
+                <ul>
+                    <li>bol.com</li>
+                    <li>nu.nl</li>
+                    <li>marktplaats.nl</li>
+                    <li>of een andere grote website</li>
+                </ul>
+            </li>
+            <li>Zoek minimaal 5 mogelijke problemen of vreemde dingen:
+                <ul>
+                    <li>knoppen die niks doen</li>
+                    <li>fouten in teksten</li>
+                    <li>elementen die verspringen</li>
+                    <li>pagina’s die langzaam laden</li>
+                    <li>iets dat onlogisch voelt</li>
+                </ul>
+            </li>
+            <li>Noteer ze kort in bulletpoints.</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Tip:</strong> Er bestaat geen “domme” bevinding. Alles dat verwarrend,
+            traag, fout of lelijk is, telt.
+        </div>
+    </section>
+
+
+
+    <!-- --- REFLECTIE ------------------------------------------------------------ -->
+    <section>
+        <h2>5. Reflectie</h2>
+
+        <p>
+            Denk terug aan wat je hebt gevonden:  
+        </p>
+        <ul>
+            <li>Welke fout vond jij het meest opvallend?</li>
+            <li>Wat zou het effect zijn geweest als deze fout nooit ontdekt werd?</li>
+        </ul>
+
+        <p>
+            Deze inzichten ga je de komende modules gebruiken.
+        </p>
+    </section>
+
+
+
+    <!-- --- NAVIGATIE ------------------------------------------------------------ -->
+    <nav class="module-navigation">
+    <a href="{{ url_for('instructions.testen_overview') }}">← Terug naar overzicht</a>
+
+    <a class="next-module" href="{{ url_for('instructions.testen_module2') }}">
+    Volgende module →
+    </a>
+    </nav>
+<div>
+
+{% endblock %}

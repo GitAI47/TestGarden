@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+{% block title %}Module 4 – Regression, Evidence & Testsystemen{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 4" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('exercises.een_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 4 — Regression, Evidence & Testsystemen</h1>
+
+    <p class="intro">
+        In deze module ga je testen zien als een <strong>systeem</strong>, niet als losse acties.
+        Niet: “ik test iets”, maar: “ik bouw vertrouwen op in verandering”.
+    </p>
+
+    <section>
+        <h2>1. Wat is regressietesten écht?</h2>
+
+        <div class="tip-box">
+            <strong>Regressietesten = vertrouwen behouden tijdens verandering</strong>
+        </div>
+
+        <p>
+            Elke wijziging kan iets breken.
+            Regressietesten zorgen ervoor dat wat eerst werkte, blijft werken.
+        </p>
+    </section>
+
+    <section>
+        <h2>2. Smoke test vs regression set</h2>
+
+        <div class="example-box">
+            <ul>
+                <li><strong>Smoke test:</strong> werkt het systeem globaal nog?</li>
+                <li><strong>Regression set:</strong> werken de kritieke functies nog?</li>
+            </ul>
+        </div>
+
+        <p>
+            Je gaat nu beide ontwerpen.
+        </p>
+    </section>
+
+    <section>
+        <h2>3. Oefening A — Smoke test set</h2>
+
+        <p>
+            Kies één oefensite (bijv. Sauce Demo, ParaBank of The Internet).
+        </p>
+
+        <ol>
+            <li>Definieer 5 checks die altijd moeten werken.</li>
+            <li>Dit zijn geen details, maar systeemchecks.</li>
+        </ol>
+
+        <div class="example-box">
+            <h3>Voorbeeld (webshop)</h3>
+            <ul>
+                <li>Login werkt</li>
+                <li>Productpagina laadt</li>
+                <li>Product in winkelwagen</li>
+                <li>Checkout bereikbaar</li>
+                <li>Bevestigingspagina zichtbaar</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>4. Oefening B — Mini regression set</h2>
+
+        <p>
+            Ontwerp een regressieset van 8–10 tests:
+        </p>
+
+        <ul>
+            <li>3 kritieke flows</li>
+            <li>3 negatieve scenario’s</li>
+            <li>2 datavarianten</li>
+            <li>1 randgeval</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Dit is jouw “beschermlaag” tegen regressie.</strong>
+        </div>
+    </section>
+
+    <section>
+        <h2>5. Evidence verzamelen</h2>
+
+        <p>
+            Testen zonder bewijs is mening.
+            Testen met bewijs is informatie.
+        </p>
+
+        <div class="example-box">
+            <ul>
+                <li>Screenshot (UI)</li>
+                <li>Console log</li>
+                <li>Network tab</li>
+                <li>Request/response</li>
+                <li>Timestamps</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>6. Oefening C — Evidence based testing</h2>
+
+        <ol>
+            <li>Kies 1 bug of issue</li>
+            <li>Verzamel 3 soorten bewijs</li>
+            <li>Maak er één professioneel testdossier van</li>
+        </ol>
+
+        <div class="example-box">
+            <h3>Structuur</h3>
+            <ul>
+                <li>Context</li>
+                <li>Reproduceerstappen</li>
+                <li>Bewijs</li>
+                <li>Impact</li>
+                <li>Risico bij niet oplossen</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>7. Denken in systemen</h2>
+
+        <p>
+            Stel jezelf bij elke test de vragen:
+        </p>
+
+        <ul>
+            <li>Wat kan hier kettingreacties veroorzaken?</li>
+            <li>Wat is afhankelijk van wat?</li>
+            <li>Wat breekt als dit verandert?</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Testen = systeemdenken, niet foutzoeken.</strong>
+        </div>
+    </section>
+
+    <section>
+        <h2>8. Deliverable</h2>
+
+        <ul>
+            <li>1 smoke test set (5 checks)</li>
+            <li>1 regression set (8–10 tests)</li>
+            <li>1 evidence dossier</li>
+            <li>1 reflectie: “Waar zit systeemrisico?”</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>9. Reflectie</h2>
+
+        <ol>
+            <li>Wat gaf jou het meeste vertrouwen in het systeem?</li>
+            <li>Wat voelde als schijnzekerheid?</li>
+            <li>Waar zou automatisering zinvol zijn — en waar niet?</li>
+        </ol>
+    </section>
+
+    <nav class="module-navigation">
+        <a href="{{ url_for('exercises.een_module3') }}">← Vorige module</a>
+        <a class="next-module" href="{{ url_for('exercises.een_overview') }}">Terug naar overzicht →</a>
+    </nav>
+<div>
+
+{% endblock %}

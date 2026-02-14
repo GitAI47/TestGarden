@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+{% block title %}Module 1 – – Wat is Git & GitHub?{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 1" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('instructions.git_overview') }}">git</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+    <!-- --- Inhoud komt hieronder ------------------------------------------------------------ -->
+    <h1>Module 1 — Wat is Git & GitHub?</h1>
+
+    <p class="intro">
+        Welkom in de Git Garden!  
+        Voordat we branches, commits en pull requests gaan gebruiken, is het belangrijk om te begrijpen
+        <strong>waarom Git bestaat</strong> en <strong>waarom bijna alle softwareteams GitHub gebruiken</strong>.
+        In deze module leggen we het fundament dat je in alle volgende stappen nodig hebt.
+    </p>
+
+
+    <!-- --- WAT IS VERSIEBEHEER ------------------------------------------------------- -->
+    <section>
+        <h2>1. Wat is versiebeheer?</h2>
+
+        <p>
+            Versiebeheer betekent: <strong>bijhouden hoe bestanden veranderen in de tijd</strong>.
+            Net zoals Google Docs alle eerdere versies onthoudt, doet Git dat ook — maar dan voor complete
+            softwareprojecten.
+        </p>
+
+        <p>
+            Met versiebeheer kun je:
+        </p>
+
+        <ul>
+            <li>zien wie welke wijziging heeft gemaakt</li>
+            <li>teruggaan naar een eerdere versie als iets kapot is gegaan</li>
+            <li>veilig experimenteren zonder het project stuk te maken</li>
+        </ul>
+
+        <p>
+            Git is de meest gebruikte versiebeheer-tool ter wereld.
+        </p>
+    </section>
+
+
+
+    <!-- --- WAT IS GIT --------------------------------------------------------------- -->
+    <section>
+        <h2>2. Wat is Git?</h2>
+
+        <p>
+            <strong>Git is een systeem dat veranderingen vastlegt in zogenaamde “commits”.</strong><br>
+            Een commit is als een foto van het project op dat moment.
+        </p>
+
+        <p>
+            Belangrijk om te weten:
+        </p>
+
+        <ul>
+            <li>Git werkt op jouw computer — lokaal.</li>
+            <li>Jij bepaalt wanneer je een foto maakt (commit).</li>
+            <li>Je kunt altijd terug naar een eerdere foto.</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Voorbeeld</h3>
+            <p>
+                Stel je maakt een rekenmachine-app.  
+                Commit 1: bestanden aangemaakt  
+                Commit 2: optelfunctie werkt  
+                Commit 3: aftrekken toegevoegd  
+                Commit 4: bugfix  
+                Git onthoudt al deze stappen, en jij kunt ze allemaal bekijken.
+            </p>
+        </div>
+    </section>
+
+
+
+    <!-- --- WAT IS GITHUB ------------------------------------------------------------ -->
+    <section>
+        <h2>3. Wat is GitHub?</h2>
+
+        <p>
+            GitHub is <strong>niet</strong> hetzelfde als Git — maar ze werken samen.
+        </p>
+
+        <p>
+            <strong>GitHub is een online platform</strong> waar je Git-projecten kunt opslaan zodat
+            meerdere mensen eraan kunnen samenwerken.  
+            Het is dus een centrale plek waar het team het werk samenbrengt.
+        </p>
+
+        <ul>
+            <li>Je kunt er projecten delen met een team.</li>
+            <li>Je kunt zien wat anderen doen.</li>
+            <li>Je maakt pull requests om samen te werken.</li>
+            <li>Er zijn tools voor code reviews, issues en releases.</li>
+        </ul>
+
+        <p>
+            Git werkt op je laptop. GitHub werkt op internet.  
+            Samen vormen ze de basis van moderne softwareontwikkeling.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>  
+            Denk aan Git als de <em>tijdmachine</em> op jouw computer  
+            en GitHub als de <em>plaats waar alle tijdlijnen bij elkaar komen</em>.
+        </div>
+    </section>
+
+
+
+    <!-- --- WAAROM TESTERS GIT GEBRUIKEN -------------------------------------------- -->
+    <section>
+        <h2>4. Waarom is Git belangrijk voor testers?</h2>
+
+        <p>
+            Testers gebruiken Git & GitHub om meerdere redenen:
+        </p>
+
+        <ul>
+            <li>Testscript of testdata beheren in een team</li>
+            <li>Documenteren van bugs en testbevindingen</li>
+            <li>Zelf kleine aanpassingen in projecten doen</li>
+            <li>Branches gebruiken om veilig testcode te maken</li>
+            <li>Een pull request maken voor een bugfix of testupdate</li>
+        </ul>
+
+        <p>
+            Zelfs als je niet programmeert, is Git een hulpmiddel dat je werk duidelijker,
+            veiliger en professioneler maakt.
+        </p>
+    </section>
+
+
+
+    <!-- --- PRAKTIJKOPDRACHT ---------------------------------------------------------- -->
+    <section>
+        <h2>5. Praktijkopdracht: Bekijk een commit-historie</h2>
+
+        <p>
+            In deze mini-opdracht kijk je naar de commit-historie van een GitHub-project.
+            Je hoeft nog niets te doen — alleen kijken en begrijpen.
+        </p>
+
+        <h3>Opdracht</h3>
+        <ol>
+            <li>Ga naar GitHub.com.</li>
+            <li>Open een willekeurig openbaar project (bijv. “python/cpython”).</li>
+            <li>Klik bovenaan op <strong>“Commits”</strong>.</li>
+            <li>Beantwoord kort voor jezelf:
+                <ul>
+                    <li>Wat valt je op aan de commit-berichten?</li>
+                    <li>Kun je zien wie welke wijziging maakte?</li>
+                    <li>Zie je de chronologie van het project?</li>
+                </ul>
+            </li>
+        </ol>
+
+        <p>
+            Je hoeft geen analyse te maken — alleen observeren.  
+            Zo leer je hoe echte teams Git gebruiken.
+        </p>
+    </section>
+
+
+
+    <!-- --- QUIZ ---------------------------------------------------------------------- -->
+    <section>
+        <h2>6. Korte Quiz</h2>
+
+        <p>Beantwoord de drie vragen om te controleren of de basis helder is.</p>
+
+        <ol>
+            <li>
+                Wat is het verschil tussen Git en GitHub?<br>
+                <em>(a) Git is lokaal, GitHub is online)</em>
+            </li>
+            <li>
+                Wat is een commit?<br>
+                <em>(a) Een momentopname van het project)</em>
+            </li>
+            <li>
+                Waarom gebruiken teams GitHub?<br>
+                <em>(b) Omdat het samenwerken overzichtelijk maakt)</em>
+            </li>
+        </ol>
+
+    </section>
+    
+
+   <!-- --- Inhoud eidigt hier ------------------------------------------------------------ -->
+
+    <!-- --- NAVIGATIE ------------------------------------------------------------ -->
+    <nav class="module-navigation">
+    <a href="{{ url_for('instructions.git_overview') }}">← Terug naar overzicht</a>
+
+    <a class="next-module" href="{{ url_for('instructions.git_module2') }}">
+    Volgende module →
+    </a>
+    </nav>
+<div>
+
+{% endblock %}

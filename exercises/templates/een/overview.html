@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Leerpad Oefeningen{% endblock %}
+
+{% block content %}
+<div class="learning-path">
+
+    <h1>🌱 Oefenen </h1>
+    <p class="lead">
+        Kies een stap om de module te openen. Zo bewandel je het pad van beginnend tester
+        naar professioneel softwaretester.
+    </p>
+
+    <div class="grid">
+        {% for step in steps %}
+        <div class="tile">
+            <div class="step-number">Stap {{ step.nr }}</div>
+            <h2>{{ step.title }}</h2>
+
+            {% if step.status == "done" %}
+                <div class="status done">🟩 Afgerond</div>
+            {% elif step.status == "progress" %}
+                <div class="status progress">🟨 Bezig</div>
+            {% else %}
+                <div class="status not">⬜ Niet gestart</div>
+            {% endif %}
+
+            <a class="open-btn" href="{{ url_for(step.endpoint) }}">Open module</a>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

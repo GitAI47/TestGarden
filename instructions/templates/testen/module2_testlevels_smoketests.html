@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+{% block title %}Module 2 – Testlevels & Smoke Testing{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 2" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('instructions.testen_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 2 — Testlevels & Smoke Testing</h1>
+
+    <p class="intro">
+        In deze module ontdek je hoe software testen in verschillende lagen gebeurt, en wat de 
+        rol is van de bekende <strong>smoke test</strong>. We gaan van overzicht naar praktijk, 
+        zodat jij begrijpt hoe jouw testwerk onderdeel is van het grotere geheel.
+    </p>
+
+
+    <!-- --- WAT ZIJN TESTLEVELS ------------------------------------------------ -->
+    <section>
+        <h2>1. Wat zijn testlevels?</h2>
+
+        <p>
+            Software wordt niet in één keer getest. Elk onderdeel wordt op een ander niveau 
+            gecontroleerd. Deze niveaus noemen we <strong>testlevels</strong>.
+        </p>
+
+        <ul>
+            <li><strong>Unit Testing</strong> — kleine stukjes code, getest door ontwikkelaars.</li>
+            <li><strong>Integratietests</strong> — werkt alles samen zoals bedoeld?</li>
+            <li><strong>Systeemtests</strong> — werkt de hele applicatie als geheel?</li>
+            <li><strong>Acceptatietests</strong> — werkt het voor de gebruiker en de opdrachtgever?</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Voorbeeld</h3>
+            <p>
+                In een webshop:
+                <br>• unit test → werkt de berekening van korting?  
+                • integratietest → werkt winkelwagen + voorraad samen?  
+                • systeemtest → werkt het bestelproces end-to-end?  
+                • acceptatietest → vindt de klant de flow logisch en bruikbaar?
+            </p>
+        </div>
+    </section>
+
+
+
+    <!-- --- TESTTYPES ---------------------------------------------------------- -->
+    <section>
+        <h2>2. Testtypes: functioneel & niet-functioneel</h2>
+        
+        <p>
+            Naast testlevels heb je ook <strong>testtypes</strong>. Dit beschrijft wát je test.
+        </p>
+
+        <ul>
+            <li><strong>Functioneel testen</strong> — doet de functie wat hij moet doen?</li>
+            <li><strong>Niet-functioneel testen</strong> — snelheid, veiligheid, gebruiksgemak, stabiliteit…</li>
+        </ul>
+
+        <p>
+            In Testgarden richten we ons vooral op functioneel testen, zoals smoke tests 
+            en exploratory testing — de basis voor elke startende tester.
+        </p>
+    </section>
+
+
+
+    <!-- --- SMOKE TEST ---------------------------------------------------------- -->
+    <section>
+        <h2>3. Wat is een Smoke Test?</h2>
+
+        <p>
+            Een smoke test is een <strong>korte, snelle check</strong> om te zien of het systeem 
+            “ongeveer gezond” is na een nieuwe release, update of deploy.
+        </p>
+
+        <p>
+            Het is de digitale variant van: <em>“gaat de rookmelder af?”</em>  
+            Als iets fundamenteels stuk is, wil je dat meteen weten.
+        </p>
+
+        <h3>Waarom smoke tests?</h3>
+        <ul>
+            <li>Ze zijn snel en geven direct duidelijkheid.</li>
+            <li>Ze voorkomen dat testers tijd verspillen aan een kapotte build.</li>
+            <li>Ze geven een duidelijke GO/NO-GO voor verdere testen.</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Voorbeeld van een smoke test</h3>
+            <ul>
+                <li>Laadt de applicatie?</li>
+                <li>Kan de gebruiker inloggen?</li>
+                <li>Werkt de belangrijkste flow (bijv. item toevoegen)?</li>
+                <li>Zijn er geen 404- of 500-fouten?</li>
+            </ul>
+        </div>
+    </section>
+
+
+
+    <!-- --- CHECKLIST ----------------------------------------------------------- -->
+    <section>
+        <h2>4. Voorbeeld Smoke Test Checklist</h2>
+
+        <p>
+            Hieronder een eenvoudige checklist die je kunt gebruiken voor elke webapplicatie:
+        </p>
+
+        <ul class="checklist">
+            <li>[ ] Is de website bereikbaar? (Status 200)</li>
+            <li>[ ] Kan een testgebruiker inloggen?</li>
+            <li>[ ] Werkt de belangrijkste functionaliteit?</li>
+            <li>[ ] Werken de belangrijkste links en knoppen?</li>
+            <li>[ ] Zijn er geen grote fouten zichtbaar (404, 500, crash)?</li>
+            <li>[ ] Werkt het ook in een andere browser of op mobiel?</li>
+        </ul>
+
+        <p>
+            Je sluit een smoke test af met een eenvoudige <strong>GO / NO-GO</strong>.
+        </p>
+    </section>
+
+
+
+    <!-- --- PRAKTIJKOPDRACHT ----------------------------------------------------- -->
+    <section>
+        <h2>5. Praktijkopdracht: Maak en voer je eigen smoke test uit</h2>
+
+        <p>
+            Je gaat nu zelf een smoke test ontwerpen én uitvoeren. 
+            Dit is precies wat testers in echte teams dagelijks doen.
+        </p>
+
+        <h3>Opdracht</h3>
+        <ol>
+            <li>Kies een demo-webapp (door de docent, of een openbare demo).</li>
+            <li>Maak je eigen smoke test checklist (minimaal 6 checks).</li>
+            <li>Voer de checklist uit.</li>
+            <li>Noteer per stap: <em>Pass</em> of <em>Fail</em>.</li>
+            <li>Schrijf een korte conclusie: is het <strong>GO</strong> of <strong>NO-GO</strong>?</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Tip:</strong> Zorg dat de stappen eenvoudig blijven. Een smoke test is 
+            geen volledige test — het is een snelle gezondheidsscan.
+        </div>
+    </section>
+
+
+
+    <!-- --- REFLECTIE ------------------------------------------------------------ -->
+    <section>
+        <h2>6. Reflectie</h2>
+        <p>
+            Denk na over je test:
+        </p>
+
+        <ul>
+            <li>Welke check was het belangrijkst?</li>
+            <li>Welk probleem zou het grootste risico vormen?</li>
+            <li>Hoe zou je checklist verbeteren voor de volgende keer?</li>
+        </ul>
+    </section>
+
+
+
+    <!-- --- NAVIGATIE ------------------------------------------------------------ -->
+    <nav class="module-navigation">
+    <a href="{{ url_for('instructions.testen_module1') }}">← Vorige module</a>
+
+
+    <a class="next-module" href="{{ url_for('instructions.testen_module3') }}">
+    Volgende module →
+    </a>
+    </nav>
+<div>
+
+{% endblock %}

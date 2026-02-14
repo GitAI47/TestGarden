@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+{% block title %}Module 3 – Pull Requests & Samenwerken{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 3" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('exercises.een_overview') }}">git</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+    <!-- --- Inhoud komt hieronder ------------------------------------------------------------ -->
+    <div class="module-container">
+
+    <h1>Module 3 — Pull Requests & Samenwerken</h1>
+
+    <p class="intro">
+        In deze module leer je hoe je via GitHub <strong>samenwerkt met anderen</strong>.
+        Het centrale hulpmiddel daarbij is de <strong>pull request</strong>.  
+        Daarmee vraag je anderen om jouw werk te bekijken, te bespreken en uiteindelijk samen te voegen.  
+        Dit is de plek waar echte team-samenwerking begint.
+    </p>
+
+
+    <!-- --- WAT IS EEN PULL REQUEST ------------------------------------------------------- -->
+    <section>
+        <h2>1. Wat is een pull request?</h2>
+
+        <p>
+            Een <strong>pull request (PR)</strong> is een voorstel om jouw wijzigingen 
+            in een branch samen te voegen met de hoofdversie van het project (meestal <code>main</code>).
+        </p>
+
+        <p>Een PR wordt gebruikt om:</p>
+
+        <ul>
+            <li>te laten zien wat jij hebt veranderd</li>
+            <li>feedback te ontvangen van teamleden</li>
+            <li>bugs op te sporen vóórdat je merge't</li>
+            <li>kwaliteit en samenwerking te verbeteren</li>
+        </ul>
+
+        <p>
+            Een pull request is dus geen formaliteit — het is een gesprek.
+        </p>
+    </section>
+
+
+    <!-- --- HOE MAAK JE EEN PR ---------------------------------------------------------- -->
+    <section>
+        <h2>2. Hoe maak je een pull request?</h2>
+
+        <p>
+            Het proces bestaat uit vier eenvoudige stappen:
+        </p>
+
+        <ol>
+            <li>Maak een <strong>nieuwe branch</strong>.</li>
+            <li>Doe je wijzigingen en commit ze.</li>
+            <li>Push de branch naar GitHub.</li>
+            <li>Klik op <strong>“New Pull Request”</strong> op GitHub.</li>
+        </ol>
+
+        <p>
+            Tijdens het openen van de PR schrijf je een korte uitleg over:
+        </p>
+
+        <ul>
+            <li>wat je hebt gewijzigd</li>
+            <li>waarom je het hebt gewijzigd</li>
+            <li>of er iets is dat reviewers moeten weten</li>
+        </ul>
+
+        <p>
+            Daarna kunnen anderen jouw werk bekijken, reacties achterlaten en goedkeuren.
+        </p>
+    </section>
+
+
+
+    <!-- --- REVIEWS ----------------------------------------------------------------------- -->
+    <section>
+        <h2>3. Wat is een review?</h2>
+
+        <p>
+            Een <strong>review</strong> is het proces waarin iemand anders jouw wijzigingen bekijkt.  
+            Dit lijkt misschien spannend, maar het is juist iets positiefs:  
+            je voorkomt fouten, je leert van elkaar, en de software wordt beter.
+        </p>
+
+        <p>
+            Een reviewer let op:
+        </p>
+
+        <ul>
+            <li>is de code begrijpelijk?</li>
+            <li>heeft de wijziging onverwachte gevolgen?</li>
+            <li>is de bestandsstructuur logisch?</li>
+            <li>zijn commit messages duidelijk?</li>
+        </ul>
+
+        <p>
+            Jij kunt als tester ook uitstekende reviews geven —  
+            zeker op helderheid, logica, namen en risico’s.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>  
+            Een goede pull request is <em>klein, duidelijk en overzichtelijk</em>.  
+            Grote PR’s zijn moeilijker te reviewen en bevatten vaker fouten.
+        </div>
+    </section>
+
+
+
+    <!-- --- MERGEN ------------------------------------------------------------------------ -->
+    <section>
+        <h2>4. Wat betekent “mergen”?</h2>
+
+        <p>
+            <strong>Mergen</strong> betekent dat de wijzigingen in jouw branch worden toegevoegd 
+            aan de hoofdversie (bijv. <code>main</code>).
+        </p>
+
+        <p>
+            Dit gebeurt pas wanneer:
+        </p>
+
+        <ul>
+            <li>de reviewer akkoord is</li>
+            <li>de PR duidelijk is uitgelegd</li>
+            <li>er geen conflicten meer zijn</li>
+        </ul>
+
+        <p>
+            Na het mergen kun je de branch meestal verwijderen —  
+            hij heeft zijn werk gedaan.
+        </p>
+    </section>
+
+
+
+    <!-- --- PRAKTIJKOPDRACHT ------------------------------------------------------------- -->
+    <section>
+        <h2>5. Praktijkopdracht: Maak je eerste pull request</h2>
+
+        <p>
+            In deze opdracht ga je een nieuwe branch maken, een kleine wijziging doen,
+            en een pull request openen in de oefenrepo 
+            <strong>git-garden-playground</strong>.
+        </p>
+
+        <h3>Opdracht</h3>
+
+        <ol>
+            <li>Open de repository <code>git-garden-playground</code> op GitHub.</li>
+            <li>Maak een nieuwe branch, bijv. <code>add-my-name</code>.</li>
+            <li>Maak lokaal een nieuw bestand:  
+                <br><code>my-contribution.txt</code></li>
+            <li>Zet in dat bestand één regel:
+                <br><code>Dit is mijn eerste pull request.</code></li>
+            <li>Commit het bestand en push je branch.</li>
+            <li>Ga op GitHub naar <strong>Pull Requests → New Pull Request</strong>.</li>
+            <li>Schrijf een korte beschrijving:
+                <ul>
+                    <li>Wat heb je toegevoegd?</li>
+                    <li>Waarom heb je deze informatie toegevoegd?</li>
+                </ul>
+            </li>
+            <li>Dien de PR in.</li>
+        </ol>
+
+        <p>
+            Je hebt nu je eerste volledige bijdrage gedaan zoals in een echt team!
+        </p>
+    </section>
+
+
+
+    <!-- --- KORTE QUIZ ------------------------------------------------------------------ -->
+    <section>
+        <h2>6. Korte Quiz</h2>
+
+        <p>Beantwoord de drie vragen:</p>
+
+        <ol>
+            <li>
+                Waarvoor gebruik je een pull request?<br>
+                <em>(a) Voorstellen om jouw wijzigingen samen te voegen met de hoofdbranch)</em>
+            </li>
+            <li>
+                Wat doet een reviewer?<br>
+                <em>(b) Bekijkt en beoordeelt de wijzigingen in een PR)</em>
+            </li>
+            <li>
+                Wanneer mag je een branch meestal verwijderen?<br>
+                <em>(c) Zodra de PR is gemerged)</em>
+            </li>
+        </ol>
+    </section>
+    
+   <!-- --- Inhoud eidigt hier ------------------------------------------------------------ -->
+
+    <!-- --- NAVIGATIE ------------------------------------------------------------ -->
+    <nav class="module-navigation">
+    <a href="{{ url_for('exercises.een_module2') }}">← Terug naar overzicht</a>
+
+    <a class="next-module" href="{{ url_for('exercises.een_module4') }}">
+    Volgende module →
+    </a>
+    </nav>
+<div>
+
+{% endblock %}

@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+{% block title %}Module 3 – Teststrategie & Risicodenken{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 3" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('exercises.een_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 3 — Teststrategie & Risicodenken</h1>
+
+    <p class="intro">
+        In module 1 leerde je <strong>vinden</strong>.
+        In module 2 leerde je <strong>wegen</strong>.
+        In deze module leer je <strong>richting geven</strong>:
+        waar test je eerst, waarom, en hoe weet je dat je voldoende getest hebt?
+    </p>
+
+    <section>
+        <h2>1. Waarom strategie?</h2>
+        <p>
+            Je kunt nooit alles testen. Strategie helpt je kiezen:
+            <strong>maximale risicoreductie met minimale tijd</strong>.
+        </p>
+
+        <div class="tip-box">
+            <strong>Teststrategie =</strong> “Waar zitten de grootste risico’s, en hoe pakken we die het slimst aan?”
+        </div>
+    </section>
+
+    <section>
+        <h2>2. De risicoformule</h2>
+
+        <div class="example-box">
+            <h3>Risico = Impact × Kans</h3>
+            <ul>
+                <li><strong>Impact</strong>: wat gebeurt er als dit faalt?</li>
+                <li><strong>Kans</strong>: hoe waarschijnlijk is het dat dit faalt?</li>
+            </ul>
+        </div>
+
+        <p>
+            Je maakt nu een mini-risicomatrix voor één oefensite.
+            Daarmee bepaal je welke onderdelen je eerst test.
+        </p>
+    </section>
+
+    <section>
+        <h2>3. Oefening A — Kritieke paden (Critical Paths)</h2>
+
+        <p>
+            Kies één oefensite (bijv. <em>Sauce Demo</em> of <em>ParaBank</em>).
+            Schrijf 3 kritieke gebruikerspaden op:
+        </p>
+
+        <ol>
+            <li><strong>Happy flow</strong> (de belangrijkste route)</li>
+            <li><strong>Foutflow</strong> (wat als het misgaat?)</li>
+            <li><strong>Randgeval</strong> (ongewone invoer of situatie)</li>
+        </ol>
+
+        <div class="example-box">
+            <h3>Voorbeeld (webshop)</h3>
+            <ul>
+                <li>Login → product kiezen → in winkelwagen → checkout</li>
+                <li>Login faalt → foutmelding → herstelpad</li>
+                <li>Checkout met lege velden / vreemde tekens / extreme aantallen</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>4. Oefening B — Risicomatrix (mini)</h2>
+
+        <p>
+            Maak een tabel met minimaal 6 onderdelen/features van de site.
+            Geef per onderdeel:
+        </p>
+
+        <ul>
+            <li><strong>Impact</strong>: laag/middel/hoog</li>
+            <li><strong>Kans</strong>: laag/middel/hoog</li>
+            <li><strong>Prioriteit</strong>: wat test je eerst?</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Risicomatrix (voorbeeld)</h3>
+            <p style="margin:0;">
+                Login (Impact: hoog, Kans: middel) → <strong>eerst testen</strong><br>
+                Zoekfunctie (Impact: middel, Kans: hoog) → <strong>vroeg testen</strong><br>
+                Footer links (Impact: laag, Kans: laag) → <strong>laat testen</strong>
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>5. Oefening C — Testdekking zonder “alles”</h2>
+
+        <p>
+            Je kiest nu één kritieke flow en maakt een kleine “coverage set”:
+        </p>
+
+        <ol>
+            <li><strong>3 functionele tests</strong> (werkt het?)</li>
+            <li><strong>3 negatieve tests</strong> (wat als het fout gaat?)</li>
+            <li><strong>2 data-varianten</strong> (kort/lang, cijfers/letters, speciale tekens)</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Coverage is niet “meer tests”. Coverage is “slimmer gekozen tests”.</strong>
+        </div>
+    </section>
+
+    <section>
+        <h2>6. Testdesign technieken (light)</h2>
+
+        <p>
+            Kies één invoerveld (bijv. password, bedrag, aantal) en pas 2 technieken toe:
+        </p>
+
+        <ul>
+            <li><strong>Boundary Values</strong>: net onder / op / net boven een grens</li>
+            <li><strong>Equivalence Partitioning</strong>: groepen input die hetzelfde gedrag geven</li>
+            <li><strong>Pairwise</strong> (optioneel): combinaties zonder explode te testen</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Voorbeeld (lengte veld)</h3>
+            <p style="margin:0;">
+                Als max = 10 tekens → test 9, 10, 11.<br>
+                Groepen: leeg / geldig / te lang / speciale tekens.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>7. Deliverable: jouw mini testplan (1 pagina)</h2>
+
+        <p>
+            Lever één korte pagina in met:
+        </p>
+
+        <ul>
+            <li>De gekozen oefensite</li>
+            <li>3 kritieke paden</li>
+            <li>Risicomatrix (min. 6 onderdelen)</li>
+            <li>Coverage set voor 1 flow (8 tests)</li>
+            <li>1 testdesign voorbeeld (boundary/partitioning)</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Dit is een testplan dat je in de praktijk echt kunt gebruiken.</strong>
+        </div>
+    </section>
+
+    <section>
+        <h2>8. Reflectie</h2>
+
+        <ol>
+            <li>Wat testte je eerst, en waarom?</li>
+            <li>Welke aanname bleek fout?</li>
+            <li>Welke test gaf jou het meeste vertrouwen — en waarom?</li>
+        </ol>
+    </section>
+
+    <nav class="module-navigation">
+        <a href="{{ url_for('exercises.een_module2') }}">← Vorige module</a>
+        <a class="next-module" href="{{ url_for('exercises.een_module4') }}">Volgende module →</a>
+    </nav>
+<div>
+
+{% endblock %}

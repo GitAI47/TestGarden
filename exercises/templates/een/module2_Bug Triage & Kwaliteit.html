@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% block title %}Module 2 – Bug Triage & Kwaliteit{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 2" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('exercises.een_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 2 — Bug Triage & Kwaliteit van Bevindingen</h1>
+
+    <p class="intro">
+        In module 1 leerde je <strong>vinden</strong>.  
+        In deze module leer je <strong>scheiden</strong>: wat is belangrijk, wat is ruis,
+        wat is reproduceerbaar, en wat is “slechts observatie”.
+    </p>
+
+    <section>
+        <h2>1. De kern van professioneel testen</h2>
+
+        <div class="tip-box">
+            <strong>Niet alles wat fout is, is een bug.<br>
+            Niet elke bug is belangrijk.<br>
+            Niet elke belangrijke bug is urgent.</strong>
+        </div>
+
+        <p>
+            Professioneel testen = keuzes maken.
+            Je leert hier werken met:
+        </p>
+
+        <ul>
+            <li><strong>Severity</strong> → hoe ernstig is het probleem technisch/functioneel?</li>
+            <li><strong>Priority</strong> → hoe snel moet dit worden opgelost?</li>
+            <li><strong>Reproduceerbaarheid</strong> → hoe betrouwbaar is het probleem?</li>
+            <li><strong>Impact</strong> → wie wordt geraakt?</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Triage-matrix</h2>
+
+        <div class="example-box">
+            <h3>Triage-indeling</h3>
+            <ul>
+                <li><strong>Blokkerend</strong> → systeem onbruikbaar</li>
+                <li><strong>Kritisch</strong> → kernfunctionaliteit faalt</li>
+                <li><strong>Major</strong> → ernstige fout, maar workaround mogelijk</li>
+                <li><strong>Minor</strong> → cosmetisch / UX / randgeval</li>
+                <li><strong>Observatie</strong> → opvallend, maar geen directe fout</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Oefening A — Herclassificeren</h2>
+
+        <p>
+            Pak 3 bevindingen uit Module 1 (eigen bugs of die van anderen).
+        </p>
+
+        <ol>
+            <li>Classificeer elke bevinding in één categorie:
+                <ul>
+                    <li>Blokkerend</li>
+                    <li>Kritisch</li>
+                    <li>Major</li>
+                    <li>Minor</li>
+                    <li>Observatie</li>
+                </ul>
+            </li>
+            <li>Geef per item:
+                <ul>
+                    <li>Severity (laag/middel/hoog)</li>
+                    <li>Priority (laag/middel/hoog)</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>4. Oefening B — Reproduceerbaarheidstest</h2>
+
+        <p>
+            Kies 1 bug en test:
+        </p>
+
+        <ol>
+            <li>Kun jij hem 3× achter elkaar reproduceren?</li>
+            <li>Kan iemand anders hem reproduceren met jouw stappen?</li>
+            <li>Kan hij hem reproduceren in een andere browser?</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Als een bug niet reproduceerbaar is → is hij niet bruikbaar.</strong>
+        </div>
+    </section>
+
+    <section>
+        <h2>5. Oefening C — Van observatie naar hypothese</h2>
+
+        <p>
+            Neem één vaag probleem (“dit voelt raar”) en herschrijf het als hypothese:
+        </p>
+
+        <div class="example-box">
+            <p>
+                <strong>Observatie:</strong><br>
+                “De pagina voelt traag.”
+            </p>
+
+            <p>
+                <strong>Hypothese:</strong><br>
+                “Bij herladen van pagina X worden 4 onnodige scripts geladen,
+                wat leidt tot vertraagde rendering.”
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>6. Professioneel bug report (v2)</h2>
+
+        <div class="example-box">
+            <ul>
+                <li><strong>Titel:</strong> Wat + waar + effect</li>
+                <li><strong>Context:</strong> Feature/flow/doel</li>
+                <li><strong>Stappen:</strong> minimaal & exact</li>
+                <li><strong>Verwacht:</strong> functioneel gedrag</li>
+                <li><strong>Actueel:</strong> afwijking</li>
+                <li><strong>Reproduceerbaarheid:</strong> altijd/soms/zeldzaam</li>
+                <li><strong>Severity:</strong> laag/middel/hoog</li>
+                <li><strong>Priority:</strong> laag/middel/hoog</li>
+                <li><strong>Impact:</strong> gebruiker/bedrijf/systeem</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>7. Reflectie</h2>
+
+        <ol>
+            <li>Welke bug leek belangrijk maar was het niet?</li>
+            <li>Welke kleine bug had onverwacht hoge impact?</li>
+            <li>Waar zat jouw grootste beoordelingsfout?</li>
+        </ol>
+    </section>
+
+    <nav class="module-navigation">
+        <a href="{{ url_for('exercises.een_module1') }}">← Vorige module</a>
+        <a class="next-module" href="{{ url_for('exercises.een_module3') }}">Volgende module →</a>
+    </nav>
+<div>
+
+{% endblock %}

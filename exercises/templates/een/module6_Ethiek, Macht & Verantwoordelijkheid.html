@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block title %}Module 6 – Ethiek, Macht & Verantwoordelijkheid{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 6" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('exercises.een_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 6 — Ethiek, Macht & Verantwoordelijkheid in Testen</h1>
+
+    <p class="intro">
+        Testen is niet alleen techniek. Testen is ook bescherming.
+        In deze module kijk je naar de <strong>menselijke gevolgen</strong> van software:
+        privacy, bias, manipulatie, en verantwoordelijkheid.
+    </p>
+
+    <section>
+        <h2>1. Waarom ethiek bij testen hoort</h2>
+
+        <div class="tip-box">
+            <strong>Testen gaat over vertrouwen.</strong><br>
+            Vertrouwen van gebruikers, leerlingen, burgers — en van jezelf.
+        </div>
+
+        <p>
+            Een tester ziet vaak eerder dan anderen wat er mis kan gaan.
+            Dat maakt testen een vak met impact.
+        </p>
+    </section>
+
+    <section>
+        <h2>2. Vier ethische risicogebieden</h2>
+
+        <div class="example-box">
+            <ul>
+                <li><strong>Privacy:</strong> verzamelen we meer data dan nodig?</li>
+                <li><strong>Bias:</strong> werkt het voor iedereen even goed?</li>
+                <li><strong>Manipulatie:</strong> sturen we gedrag via “dark patterns”?</li>
+                <li><strong>Veiligheid:</strong> kunnen gebruikers schade oplopen?</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Oefening A — Dark patterns herkennen</h2>
+
+        <p>
+            Kies één oefensite (of een echte site die je goed kent) en zoek 3 dingen die gebruikers sturen.
+        </p>
+
+        <ol>
+            <li>Waar wordt keuze beïnvloed?</li>
+            <li>Waar wordt iets verstopt (annuleren, voorwaarden, kosten)?</li>
+            <li>Waar wordt druk gezet (tijd, schaamte, sociale druk)?</li>
+        </ol>
+
+        <div class="example-box">
+            <h3>Voorbeelden van dark patterns</h3>
+            <ul>
+                <li>Opt-out die verstopt zit</li>
+                <li>“Nog één stap…” terwijl er 5 komen</li>
+                <li>Knop “Akkoord” groot, “Nee” klein en grijs</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>4. Oefening B — Privacy minimalisme</h2>
+
+        <p>
+            Bekijk een registratie- of contactformulier (op een oefensite of in gedachten).
+        </p>
+
+        <ol>
+            <li>Welke velden zijn écht nodig?</li>
+            <li>Welke velden zijn “handig voor marketing”?</li>
+            <li>Wat zou er mis kunnen gaan als dit lekt?</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Vuistregel:</strong> verzamel alleen data die je kunt verdedigen.
+        </div>
+    </section>
+
+    <section>
+        <h2>5. Oefening C — Inclusief testen (bias)</h2>
+
+        <p>
+            Beschrijf 5 testideeën die je helpt zien of de app “voor iedereen” werkt:
+        </p>
+
+        <ul>
+            <li>Toetsenbord-only navigatie</li>
+            <li>Contrast en leesbaarheid</li>
+            <li>Foutmeldingen die begrijpelijk zijn</li>
+            <li>Verschillende taalniveaus</li>
+            <li>Mobiel vs desktop</li>
+        </ul>
+
+        <div class="example-box">
+            <strong>Bonus:</strong> kijk of een foutmelding een gebruiker blame’t (“je hebt iets fout gedaan”)
+            of helpt (“dit veld is nodig omdat…”).
+        </div>
+    </section>
+
+    <section>
+        <h2>6. Deliverable</h2>
+
+        <ul>
+            <li>3 dark patterns (met uitleg waarom)</li>
+            <li>1 privacy-minimalisme analyse (wat kan weg / wat is riskant)</li>
+            <li>5 inclusieve testideeën (bias/a11y)</li>
+            <li>Reflectie: “Wat wil ik als tester beschermen?”</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>7. Reflectie</h2>
+        <ol>
+            <li>Welke “fout” is technisch klein maar menselijk groot?</li>
+            <li>Wat is jouw grens: wanneer trek je aan de bel?</li>
+            <li>Wat betekent ‘kwaliteit’ als mensen geraakt worden?</li>
+        </ol>
+    </section>
+
+    <nav class="module-navigation">
+        <a href="{{ url_for('exercises.een_module5') }}">← Vorige module</a>
+        <a class="next-module" href="{{ url_for('exercises.een_module7') }}">Volgende module →</a>
+    </nav>
+<div>
+
+{% endblock %}

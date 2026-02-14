@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Admin{% endblock %}
+
+{% block content %}
+<h1>Admin panel</h1>
+<p>Hier kun je rollen beheren.</p>
+
+<table style="width:100%; border-collapse: collapse;">
+  <tr>
+    <th style="text-align:left; border-bottom:1px solid #ddd; padding:8px;">Gebruiker</th>
+    <th style="text-align:left; border-bottom:1px solid #ddd; padding:8px;">Email</th>
+    <th style="text-align:left; border-bottom:1px solid #ddd; padding:8px;">Rol</th>
+    <th style="text-align:left; border-bottom:1px solid #ddd; padding:8px;">Acties</th>
+  </tr>
+  {% for u in users %}
+  <tr>
+    <td style="padding:8px; border-bottom:1px solid #eee;">{{ u.username }}</td>
+    <td style="padding:8px; border-bottom:1px solid #eee;">{{ u.email }}</td>
+    <td style="padding:8px; border-bottom:1px solid #eee;">{{ u.role }}</td>
+    <td style="padding:8px; border-bottom:1px solid #eee;">
+      <a href="{{ url_for('users.admin_set_role', username=u.username, role='student') }}">student</a> |
+      <a href="{{ url_for('users.admin_set_role', username=u.username, role='teacher') }}">teacher</a> |
+      <a href="{{ url_for('users.admin_set_role', username=u.username, role='admin') }}">admin</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{% block title %}Module 5 – Exploratory Testing{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 5" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('instructions.testen_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 5 – Exploratory Testing</h1>
+
+    <p class="intro">
+        Exploratory Testing is één van de krachtigste en leukste manieren van testen.
+        Je gaat op ontdekkingstocht door de software zoals een echte gebruiker dat doet: 
+        nieuwsgierig, creatief en zonder vooraf vastgelegde stappen.
+        Dit is waar testers echte waarde toevoegen.
+    </p>
+
+
+    <!-- --- WAT IS EXPLORATORY ------------------------------------------------- -->
+    <section>
+        <h2>1. Wat is Exploratory Testing?</h2>
+
+        <p>
+            Exploratory Testing betekent dat je <strong>ontdekkend</strong> test:
+            je bedenkt tegelijk wat je wilt testen, voert het uit en leert tijdens het testen.
+        </p>
+
+        <p>
+            Het is het tegenovergestelde van een strak script:
+            <strong>je volgt je ogen, je intuïtie en de signalen van de software.</strong>
+        </p>
+
+        <ul>
+            <li>Je denkt als een gebruiker</li>
+            <li>Je klikt, probeert, experimenteert</li>
+            <li>Je volgt rare foutjes of onverwachte situaties</li>
+            <li>Je onderzoekt zonder dat er iemand zegt "doe stap 1, 2, 3"</li>
+        </ul>
+    </section>
+
+
+
+    <!-- --- WAAROM -------------------------------------------------------------- -->
+    <section>
+        <h2>2. Waarom is Exploratory Testing belangrijk?</h2>
+
+        <p>Exploratory testing vindt vaak fouten die nooit in documenten of testcases staan.</p>
+
+        <div class="example-box">
+            <h3>Voorbeelden van problemen die je vaak alleen exploratief vindt:</h3>
+            <ul>
+                <li>Raar gedrag dat alleen gebeurt als je snel klikt</li>
+                <li>Links die op mobiel anders werken dan op desktop</li>
+                <li>Onlogische flows (“waar ben ik nu beland?”)</li>
+                <li>Stappen die intuïtief niet kloppen</li>
+                <li>Foutjes in tekst, opmaak of layout</li>
+            </ul>
+        </div>
+
+        <p>
+            Exploratory testing is dus de perfecte aanvulling op scripted testing.
+        </p>
+    </section>
+
+
+
+    <!-- --- SESSION-BASED TESTING ---------------------------------------------- -->
+    <section>
+        <h2>3. Session-Based Test Management (SBTM)</h2>
+
+        <p>
+            Vaak werk je tijdens exploratief testen in <strong>sessions</strong>:
+            korte, gefocuste blokken tijd waarin je een specifiek doel hebt.
+        </p>
+
+        <p>
+            Een session heeft drie onderdelen:
+        </p>
+        <ul>
+            <li><strong>Charter</strong> – wat ga je onderzoeken?</li>
+            <li><strong>Timer</strong> – meestal 30 tot 60 minuten</li>
+            <li><strong>Note-taking</strong> – wat zie je, wat werkt niet, wat valt op?</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Voorbeeld Charter</h3>
+            <p>
+                “Onderzoek de registratiepagina op onlogische flows, foutmeldingen en mobiel gebruik.”
+            </p>
+        </div>
+    </section>
+
+
+
+    <!-- --- HOE DOE JE HET ------------------------------------------------------ -->
+    <section>
+        <h2>4. Hoe doe je Exploratory Testing?</h2>
+
+        <p>Een paar praktische handvatten:</p>
+
+        <ul>
+            <li>Begin met een duidelijk doel (je charter)</li>
+            <li>Ga de software in zoals een gebruiker dat doet</li>
+            <li>Wees nieuwsgierig: “Wat gebeurt er als…?”</li>
+            <li>Volg onverwachte dingen — dat zijn kansen!</li>
+            <li>Noteer: foutmeldingen, gek gedrag, vertraging, vragen, ideeën</li>
+            <li>Test ook eens heel snel, of juist heel traag</li>
+            <li>Test op mobiel, tablet, andere browsers</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Pro-tip:</strong> Exploratory testing is geen chaos. 
+            Je volgt een doel, maar laat ruimte voor ontdekking.
+        </div>
+    </section>
+
+
+
+    <!-- --- SESSION REPORT ------------------------------------------------------ -->
+    <section>
+        <h2>5. Session Report (korte template)</h2>
+
+<pre class="code-block">
+Session Report – [onderdeel] – [datum]
+
+Charter:
+  Wat was je doel?
+
+Duur:
+  Hoe lang heb je getest?
+
+Observaties:
+  - Wat zag je?
+  - Welke rare situaties kwamen naar voren?
+
+Issues gevonden:
+  - Bug 1: omschrijving + hoe te reproduceren
+  - Bug 2: omschrijving + hoe te reproduceren
+  - Bug 3: omschrijving + hoe te reproduceren
+
+Opmerkingen:
+  Vragen, ideeën, twijfels
+</pre>
+
+    </section>
+
+
+
+    <!-- --- PRAKTIJKOPDRACHT --------------------------------------------------- -->
+    <section>
+        <h2>6. Praktijkopdracht: 60-minuten Exploratory Session</h2>
+
+        <p>
+            Je gaat nu zelf een volledige exploratory testing sessie uitvoeren.
+        </p>
+
+        <h3>Opdracht</h3>
+        <ol>
+            <li>Kies een onderdeel van de demo-app (bijv. registratie, login, winkelwagen).</li>
+            <li>Schrijf een charter van één zin.</li>
+            <li>Zet een timer op 60 minuten.</li>
+            <li>Test exploratief en noteer alles wat opvalt.</li>
+            <li>Schrijf een session report.</li>
+            <li>Lever minimaal 3 bugs in als losse bugreports.</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Tip:</strong> Als je vastloopt, stel de vraag: 
+            “Waar zou een gebruiker in de war kunnen raken?”
+        </div>
+    </section>
+
+
+
+    <!-- --- REFLECTIE ---------------------------------------------------------- -->
+    <section>
+        <h2>7. Reflectie</h2>
+
+        <p>Sta stil bij je sessie:</p>
+
+        <ul>
+            <li>Wat verraste je?</li>
+            <li>Welke bug had je nooit gevonden met alleen testcases?</li>
+            <li>Welke skills kwamen goed van pas?</li>
+            <li>Wat wil je anders doen volgende keer?</li>
+        </ul>
+    </section>
+
+
+
+    <!-- --- NAVIGATIE ----------------------------------------------------------- -->
+    <nav class="module-navigation">
+    <a href="{{ url_for('instructions.testen_module4') }}">← Vorige module</a>
+
+
+    <a class="next-module" href="{{ url_for('instructions.testen_module6') }}">
+    Volgende module →
+    </a>
+    </nav>
+<div>
+
+{% endblock %}

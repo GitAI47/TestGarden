@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Testrun{% endblock %}
+{% block content %}
+
+<h1>Testrun #{{ run.id }}</h1>
+
+<form method="post">
+
+  {% for c in cases %}
+    <details style="margin-bottom:14px;" {% if loop.first %}open{% endif %}>
+      <summary style="cursor:pointer;">
+        <strong>{{ c.key }}</strong> — {{ c.title }}
+      </summary>
+
+      {% if c.preconditions %}
+        <p style="margin-top:10px;"><em>Precondities:</em></p>
+        <ul>
+          {% for p in c.preconditions %}
+            <li>{{ p.text }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      <table class="test-steps" style="width:100%; border-collapse:collapse; margin-top:10px;">
+        <thead>
+          <tr>
+            <th style="text-align:left; padding:6px; width:40%;">Stap</th>
+            <th style="text-align:left; padding:6px; width:30%;">Verwacht</th>
+            <th style="text-align:left; padding:6px; width:140px;">Status</th>
+            <th style="text-align:left; padding:6px;">Opmerking</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in c.steps|sort(attribute="step_no") %}
+            <tr>
+              <td style="vertical-align:top; padding:6px;">
+                <strong>{{ s.step_no }}.</strong> {{ s.action }}
+              </td>
+              <td style="vertical-align:top; padding:6px;">
+                {{ s.expected or "-" }}
+              </td>
+              <td style="vertical-align:top; padding:6px;">
+                <select name="step_status_{{ c.id }}_{{ s.step_no }}" style="width:100%;">
+                  <option value="">--</option>
+                  <option value="pass">Goed</option>
+                  <option value="fail">Fout</option>
+                  <option value="note">Goed met opmerking</option>
+                  <option value="skip">Niet getest</option>
+                </select>
+              </td>
+              <td style="vertical-align:top; padding:6px;">
+                <input type="text"
+                       name="step_comment_{{ c.id }}_{{ s.step_no }}"
+                       placeholder="Opmerking (optioneel)"
+                       style="width:100%;">
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </details>
+  {% endfor %}
+
+  <button type="submit">Opslaan</button>
+
+</form>
+
+{% endblock %}

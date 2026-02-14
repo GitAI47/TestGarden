@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>QR-code generator</h1>
+
+<form method="get" target="_blank">
+
+    <div>
+        <label for="data">URL</label><br>
+        <input type="text" id="data" name="data"
+               value="{{ request.args.get('data', default_url) }}"
+               style="width: 100%;">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="label">Beschrijving (optioneel)</label><br>
+        <input type="text" id="label" name="label"
+               value="{{ request.args.get('label', '') }}"
+               placeholder="Bijv. naam van de te testen site">
+    </div>
+
+    <br>
+
+    <button type="submit">Genereer</button>
+</form>
+
+{% if request.args.get('data') %}
+    <hr>
+
+    {% if request.args.get('label') %}
+        <h3>{{ request.args.get('label') }}</h3>
+    {% endif %}
+
+    <p>
+        QR naar: <code>{{ request.args.get('data') }}</code>
+    </p>
+
+    <img
+        src="{{ url_for('tools.qrcode_png', data=request.args.get('data')) }}"
+        alt="QR code">
+{% endif %}
+
+{% endblock %}

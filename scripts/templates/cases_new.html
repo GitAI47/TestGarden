@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Nieuwe testcase{% endblock %}
+
+{% block content %}
+<h1>Nieuwe testcase</h1>
+
+<form method="post">
+  <div class="card" style="padding:12px; margin-bottom:12px;">
+    <label>Key (bv. TC-001)</label><br>
+    <input name="key" style="width:100%;" value="{{ form.get('key','') if form else '' }}" required><br><br>
+
+    <label>Titel</label><br>
+    <input name="title" style="width:100%;" value="{{ form.get('title','') if form else '' }}" required><br><br>
+
+    <label>Module</label><br>
+    <input name="module" style="width:100%;" value="{{ form.get('module','') if form else '' }}"><br><br>
+
+    <label>Beschrijving / doel</label><br>
+    <textarea name="description" style="width:100%; min-height:80px;">{{ form.get('description','') if form else '' }}</textarea><br><br>
+
+    <label>Tags (komma-gescheiden)</label><br>
+    <input name="tags" style="width:100%;" value="{{ form.get('tags','') if form else '' }}"><br><br>
+
+    <label>Priority</label><br>
+    <select name="priority">
+      {% set p = form.get('priority','') if form else '' %}
+      <option value="" {% if p=="" %}selected{% endif %}>-</option>
+      <option value="low" {% if p=="low" %}selected{% endif %}>low</option>
+      <option value="med" {% if p=="med" %}selected{% endif %}>med</option>
+      <option value="high" {% if p=="high" %}selected{% endif %}>high</option>
+    </select>
+  </div>
+
+  <h2>Precondities</h2>
+  <div id="preconditions">
+    <div class="precond-row" style="margin-bottom:8px;">
+      <input name="precondition" style="width:100%;" placeholder="Bijv: Er bestaat een docent-account">
+    </div>
+  </div>
+  <button type="button" id="addPrecond">+ Preconditie</button>
+
+  <h2 style="margin-top:18px;">Stappen</h2>
+  <div id="steps">
+    <div class="step-row" style="display:grid; grid-template-columns: 80px 1fr 1fr; gap:8px; margin-bottom:8px;">
+      <input name="step_no" placeholder="Nr" value="1">
+      <input name="action" placeholder="Actie (verplicht)">
+      <input name="expected" placeholder="Expected (optioneel)">
+    </div>
+  </div>
+  <button type="button" id="addStep">+ Stap</button>
+
+  <div style="margin-top:18px;">
+    <button type="submit">Opslaan</button>
+    <a href="{{ url_for('scripts.cases_list') }}" style="margin-left:10px;">Annuleren</a>
+  </div>
+</form>
+
+<script>
+  const preconditions = document.getElementById("preconditions");
+  const steps = document.getElementById("steps");
+
+  document.getElementById("addPrecond").addEventListener("click", () => {
+    const div = document.createElement("div");
+    div.className = "precond-row";
+    div.style.marginBottom = "8px";
+    div.innerHTML = `<input name="precondition" style="width:100%;" placeholder="Preconditie">`;
+    preconditions.appendChild(div);
+  });
+
+  document.getElementById("addStep").addEventListener("click", () => {
+    const currentRows = steps.querySelectorAll(".step-row").length;
+    const nextNr = currentRows + 1;
+
+    const div = document.createElement("div");
+    div.className = "step-row";
+    div.style.display = "grid";
+    div.style.gridTemplateColumns = "80px 1fr 1fr";
+    div.style.gap = "8px";
+    div.style.marginBottom = "8px";
+
+    div.innerHTML = `
+      <input name="step_no" placeholder="Nr" value="${nextNr}">
+      <input name="action" placeholder="Actie (verplicht)">
+      <input name="expected" placeholder="Expected (optioneel)">
+    `;
+    steps.appendChild(div);
+  });
+</script>
+{% endblock %}

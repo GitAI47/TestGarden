@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+{% block title %}Module 4 – Testtechnieken{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 4" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('instructions.testen_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 4 – Testtechnieken</h1>
+
+    <p class="intro">
+        In deze module leer je hoe je goede testgevallen ontwerpt. 
+        Niet “zomaar wat klikken”, maar gestructureerd, slim en creatief testen.  
+        Deze technieken helpen je fouten te vinden die je anders nooit zou zien.
+    </p>
+
+
+
+    <!-- --- OVERZICHT ----------------------------------------------------------- -->
+    <section>
+        <h2>1. Waarom testtechnieken?</h2>
+
+        <p>
+            Testtechnieken helpen je <strong>bewuster, vollediger en slimmer</strong> te testen.
+            Ze zorgen ervoor dat je niet alleen de “gelukkige paden” test, maar ook de foutscenario’s,
+            rare invoer en grenswaarden.
+        </p>
+
+        <p>
+            Een goede tester gebruikt technieken om:
+        </p>
+        <ul>
+            <li>meer fouten te vinden</li>
+            <li>efficiënter te testen</li>
+            <li>te laten zien dat er over de testcases is nagedacht</li>
+            <li>herhaalbare, duidelijke testcases te maken</li>
+        </ul>
+    </section>
+
+
+
+    <!-- --- TECHNIEK 1 ---------------------------------------------------------- -->
+    <section>
+        <h2>2. Equivalence Partitioning (EP)</h2>
+
+        <p>
+            Bij Equivalence Partitioning (EP) verdeel je alle mogelijke invoer in groepen 
+            (“partities”) waarvan je verwacht dat ze hetzelfde gedrag opleveren.
+        </p>
+
+        <div class="example-box">
+            <h3>Voorbeeld</h3>
+            <p>
+                Een leeftijdsveld accepteert leeftijden tussen <strong>18 en 65</strong>.
+            </p>
+            <p>Dan zijn de partities:</p>
+            <ul>
+                <li>Te jong (0–17)</li>
+                <li><strong>Geldig (18–65)</strong> ← slechts één testcase nodig!</li>
+                <li>Te oud (66+)</li>
+            </ul>
+        </div>
+
+        <p>
+            In plaats van 48 mogelijke geldige leeftijden test je er gewoon 1. 
+            Minder werk, zelfde dekking.
+        </p>
+    </section>
+
+
+
+    <!-- --- TECHNIEK 2 ---------------------------------------------------------- -->
+    <section>
+        <h2>3. Boundary Value Analysis (BVA)</h2>
+
+        <p>
+            Fouten zitten vaak aan de randen van invoerwaarden.  
+            Boundary testing focust op minima, maxima en net-over-de-grens.
+        </p>
+
+        <div class="example-box">
+            <h3>Voorbeeld</h3>
+            <p>
+                Leeftijd 18–65 is geldig.  
+                Dan test je:
+            </p>
+            <ul>
+                <li>17 (net te laag)</li>
+                <li><strong>18</strong> (laagste geldige)</li>
+                <li>65 (hoogste geldige)</li>
+                <li>66 (net te hoog)</li>
+            </ul>
+        </div>
+
+        <p>
+            Deze techniek vindt veel fouten die gebruikers direct raken.
+        </p>
+    </section>
+
+
+
+    <!-- --- TECHNIEK 3 ---------------------------------------------------------- -->
+    <section>
+        <h2>4. Decision Tables</h2>
+
+        <p>
+            Gebruik dit wanneer er meerdere regels of voorwaarden tegelijk gelden.  
+            Je zet alles in een tabel en maakt testcases per combinatie.
+        </p>
+
+        <div class="example-box">
+            <h3>Voorbeeld: inloggen</h3>
+            <table class="decision-table">
+                <tr>
+                    <th>Gebruikersnaam</th>
+                    <th>Wachtwoord</th>
+                    <th>Verwachting</th>
+                </tr>
+                <tr>
+                    <td>Goed</td>
+                    <td>Goed</td>
+                    <td>Login ok</td>
+                </tr>
+                <tr>
+                    <td>Goed</td>
+                    <td>Fout</td>
+                    <td>Foutmelding</td>
+                </tr>
+                <tr>
+                    <td>Fout</td>
+                    <td>Goed</td>
+                    <td>Foutmelding</td>
+                </tr>
+                <tr>
+                    <td>Fout</td>
+                    <td>Fout</td>
+                    <td>Foutmelding</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+
+
+    <!-- --- TECHNIEK 4 ---------------------------------------------------------- -->
+    <section>
+        <h2>5. State Transition Testing</h2>
+
+        <p>
+            Sommige systemen veranderen van status: bijvoorbeeld een gebruiker die inlogt, 
+            uitlogt, of een bestelling die “geplaatst → betaald → verzonden” wordt.
+        </p>
+
+        <p>
+            Hier test je:
+        </p>
+
+        <ul>
+            <li>geldige overstappen</li>
+            <li>ongeldige overstappen</li>
+            <li>wat er gebeurt als iets overslagen wordt</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Voorbeeld: Bestelstatus</h3>
+            <p>
+                Geldigde transities:
+            </p>
+            <ul>
+                <li>Geplaatst → Betaald</li>
+                <li>Betaald → Verzonden</li>
+            </ul>
+
+            <p>Ongeldig:</p>
+            <ul>
+                <li>Verzonden → Geplaatst</li>
+                <li>Verzonden → Betaald</li>
+            </ul>
+        </div>
+    </section>
+
+
+
+    <!-- --- PRAKTIJKOPDRACHT --------------------------------------------------- -->
+    <section>
+        <h2>6. Praktijkopdracht: Schrijf 8 testcases</h2>
+
+        <p>
+            Je gaat nu 8 testgevallen maken voor een inlogscherm of invoerveld 
+            naar keuze. Gebruik minimaal twee technieken.
+        </p>
+
+        <h3>Opdracht</h3>
+        <ol>
+            <li>Kies een onderdeel (bijv. login, wachtwoord reset, leeftijdsveld).</li>
+            <li>Schrijf 8 testcases met:
+                <ul>
+                    <li>stappen</li>
+                    <li>verwacht resultaat</li>
+                    <li>techniek erbij (EP, BVA, Decision Table, State Transition)</li>
+                </ul>
+            </li>
+            <li>Laat een klasgenoot jouw testcases uitvoeren.</li>
+            <li>Verbeter ze op basis van hun feedback.</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Tip:</strong> Een goede testcase is kort, duidelijk en reproduceerbaar.
+        </div>
+    </section>
+
+
+
+    <!-- --- REFLECTIE ---------------------------------------------------------- -->
+    <section>
+        <h2>7. Reflectie</h2>
+        <p>
+            Denk na over je testcases:
+        </p>
+        <ul>
+            <li>Welke techniek voelde het meest logisch?</li>
+            <li>Wat kostte de meeste tijd?</li>
+            <li>Welke techniek vond je verrassend effectief?</li>
+        </ul>
+    </section>
+
+
+
+    <!-- --- NAVIGATIE ----------------------------------------------------------- -->
+    <nav class="module-navigation">
+    <a href="{{ url_for('instructions.testen_module3') }}">← Vorige module</a>
+
+
+    <a class="next-module" href="{{ url_for('instructions.testen_module5') }}">
+    Volgende module →
+    </a>
+    </nav>
+<div>
+
+{% endblock %}

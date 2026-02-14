@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Feedback{% endblock %}
+{% block content %}
+<div class="feedback-container">
+  <h2>🌱 Deel je ervaring met TestGardenIVM</h2>
+  <p>Je helpt ons groeien door te delen wat je voelt, denkt en ervaart tijdens het gebruik.</p>
+
+  <form method="POST" class="feedback-form">
+    <label>Eerste indruk</label>
+    <textarea name="impressie"></textarea>
+
+    <label>Gebruikservaring</label>
+    <textarea name="gebruik"></textarea>
+
+    <label>Inhoud en betekenis</label>
+    <textarea name="inhoud"></textarea>
+
+    <label>Functionaliteit</label>
+    <textarea name="functionaliteit"></textarea>
+
+    <label>Vormgeving</label>
+    <textarea name="vormgeving"></textarea>
+
+    <label>Suggesties of wensen</label>
+    <textarea name="suggesties"></textarea>
+
+    <label>Reflectie</label>
+    <textarea name="reflectie"></textarea>
+
+    <button type="submit" class="feedback-btn">Verstuur feedback 🌿</button>
+  </form>
+</div>
+{% endblock %}

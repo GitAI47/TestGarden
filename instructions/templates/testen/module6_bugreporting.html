@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+{% block title %}Module 6 – Bug Reporting{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 6" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('instructions.testen_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 6 – Bug Reporting</h1>
+
+    <p class="intro">
+        Bugreporting is één van de belangrijkste vaardigheden van een tester.
+        Een goed bugreport is duidelijk, reproduceerbaar en helpt ontwikkelaars
+        om het probleem snel op te lossen. 
+        In deze module leer je hoe je goede bugreports schrijft en oefen je dit in de praktijk.
+    </p>
+
+
+    <!-- --- WAT IS EEN BUG ----------------------------------------------------- -->
+    <section>
+        <h2>1. Wat is een bug?</h2>
+
+        <p>
+            Een <strong>bug</strong> is een situatie waarin de software niet doet wat de gebruiker,
+            de ontwikkelaar of het ontwerp verwacht. 
+        </p>
+
+        <p>
+            Het kan gaan om:
+        </p>
+
+        <ul>
+            <li>functionele fouten</li>
+            <li>layoutproblemen</li>
+            <li>verkeerde foutmeldingen</li>
+            <li>fout gedrag bij specifieke stappen</li>
+            <li>beveiligingsproblemen</li>
+            <li>prestatieproblemen (traagheid)</li>
+        </ul>
+
+        <p>
+            Een bug is dus elk verschil tussen <strong>verwacht gedrag</strong> 
+            en <strong>werkelijk gedrag</strong>.
+        </p>
+    </section>
+
+
+
+    <!-- --- WAT IS EEN GOED BUGREPORT ----------------------------------------- -->
+    <section>
+        <h2>2. Wat is een goed bugreport?</h2>
+
+        <p>
+            Een goed bugreport is:
+        </p>
+        <ul>
+            <li><strong>Duidelijk</strong> – iedereen begrijpt wat het probleem is</li>
+            <li><strong>Reproduceerbaar</strong> – iemand anders kan het probleem opnieuw veroorzaken</li>
+            <li><strong>Volledig</strong> – alle nodige details staan erin</li>
+            <li><strong>Neutraal</strong> – feitelijk, zonder mening of verwijt</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Voorbeeld (slechte bugreport)</h3>
+            <p>
+                “De site doet het niet. Fix plz.”
+            </p>
+
+            <h3>Voorbeeld (goede bugreport)</h3>
+            <p>
+                “Bij het klikken op ‘Opslaan’ verschijnt foutmelding 500 en wordt het formulier niet opgeslagen.”
+            </p>
+        </div>
+
+    </section>
+
+
+
+    <!-- --- SEVERITY & PRIORITY ------------------------------------------------ -->
+    <section>
+        <h2>3. Severity en Priority</h2>
+
+        <p>
+            Testers geven vaak twee labels aan bugs:
+        </p>
+
+        <ul>
+            <li><strong>Severity</strong> – hoe erg is de fout voor de werking van het systeem?</li>
+            <li><strong>Priority</strong> – hoe snel moet de fout worden opgelost?</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Voorbeelden</h3>
+            <ul>
+                <li><strong>High severity, low priority:</strong>  
+                    Een crash in een functie die bijna niemand gebruikt.</li>
+
+                <li><strong>Low severity, high priority:</strong>  
+                    Een spelfout op de homepage van een grote klant.</li>
+            </ul>
+        </div>
+    </section>
+
+
+
+    <!-- --- TEMPLATE ------------------------------------------------------------ -->
+    <section>
+        <h2>4. Bugreport Template</h2>
+
+        <p>
+            Gebruik dit template voor het schrijven van bugreports:
+        </p>
+
+<pre class="code-block">
+Titel:
+  Korte en duidelijke omschrijving
+
+Omgeving:
+  Browser, OS, versie, device
+
+Severity:
+Priority:
+
+Stappen om te reproduceren:
+  1. ...
+  2. ...
+  3. ...
+
+Verwacht resultaat:
+  Wat zou er moeten gebeuren?
+
+Werkelijk resultaat:
+  Wat gebeurde er in plaats daarvan?
+
+Screenshot / log:
+  (optioneel maar sterk aanbevolen)
+
+Extra opmerkingen:
+  consistentie, hoe vaak gebeurt het, gebruikersimpact
+</pre>
+    </section>
+
+
+
+    <!-- --- PRAKTIJKOPDRACHT --------------------------------------------------- -->
+    <section>
+        <h2>5. Praktijkopdracht: Schrijf 3 Bugreports</h2>
+
+        <p>
+            Je gaat nu drie bugreports schrijven op basis van fouten die je gevonden hebt
+            tijdens Exploratory Testing.
+        </p>
+
+        <h3>Opdracht</h3>
+        <ol>
+            <li>Kies drie issues uit je session report van Module 5.</li>
+            <li>Schrijf voor elk issue een volledig bugreport.</li>
+            <li>Gebruik het template hierboven.</li>
+            <li>Controleer of de bug reproduceerbaar is.</li>
+            <li>Laat een klasgenoot jouw bugreport testen.</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>  
+            Een bugreport is pas goed als iemand anders exact hetzelfde probleem kan reproduceren.
+        </div>
+    </section>
+
+
+
+    <!-- --- REFLECTIE ---------------------------------------------------------- -->
+    <section>
+        <h2>6. Reflectie</h2>
+
+        <p>
+            Denk terug aan je bugreports:
+        </p>
+
+        <ul>
+            <li>Welke was het duidelijkst en waarom?</li>
+            <li>Welke informatie miste je eerst?</li>
+            <li>Hoe reageerde je klasgenoot op je report?</li>
+            <li>Wat zou je de volgende keer anders doen?</li>
+        </ul>
+    </section>
+
+
+
+    <!-- --- NAVIGATIE ----------------------------------------------------------- -->
+    <nav class="module-navigation">
+    <a href="{{ url_for('instructions.testen_module5') }}">← Vorige module</a>
+
+
+    <a class="next-module" href="{{ url_for('instructions.testen_module7') }}">
+    Volgende module →
+    </a>
+    </nav>
+<div>
+
+{% endblock %}

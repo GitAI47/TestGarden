@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %}Module 7 – AI & Testen{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 7" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('exercises.een_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 7 — AI & Testen</h1>
+
+    <p class="intro">
+        AI kan je helpen testen — en AI moet ook getest worden.
+        In deze module leer je samenwerken met AI als <strong>assistent</strong>,
+        en leer je tegelijk wat AI onbetrouwbaar maakt.
+    </p>
+
+    <section>
+        <h2>1. Drie rollen van AI in testen</h2>
+
+        <div class="example-box">
+            <ul>
+                <li><strong>AI als assistent:</strong> testideeën, edge cases, samenvatten</li>
+                <li><strong>AI als onderdeel van het systeem:</strong> je test een AI-feature</li>
+                <li><strong>AI als risico:</strong> bias, hallucinatie, onvoorspelbaarheid</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Waar AI sterk in is</h2>
+        <ul>
+            <li>Snel veel testideeën genereren</li>
+            <li>Varianten en randgevallen bedenken</li>
+            <li>Teksten herschrijven tot duidelijke bug reports</li>
+            <li>Checklist/rubrics maken</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>AI is goed in breedte. Jij bent nodig voor waarheid.</strong>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Waar AI gevaarlijk in is</h2>
+        <ul>
+            <li>Zelfverzekerd onwaar zijn (hallucinatie)</li>
+            <li>Onzichtbare aannames maken</li>
+            <li>Bias versterken</li>
+            <li>“Plausibele” antwoorden geven die niet kloppen</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Oefening A — AI als test-assistent (goed gebruik)</h2>
+
+        <p>
+            Kies één flow (bijv. login of checkout) en laat AI 15 testideeën geven.
+            Jij kiest er 8 uit en schrijft ze als testcases.
+        </p>
+
+        <ol>
+            <li>Vraag AI om testideeën</li>
+            <li>Selecteer de beste 8 (met motivatie)</li>
+            <li>Schrijf ze netjes uit: stappen, verwacht resultaat</li>
+        </ol>
+
+        <div class="example-box">
+            <strong>Tip prompt:</strong><br>
+            “Geef 15 testideeën voor flow X. Denk aan negatieve tests, data-varianten en usability.”
+        </div>
+    </section>
+
+    <section>
+        <h2>5. Oefening B — AI controleren (kritisch testen)</h2>
+
+        <p>
+            Neem 5 AI-ideeën en check of ze:
+        </p>
+
+        <ul>
+            <li>realistisch zijn voor deze site</li>
+            <li>testbaar zijn (observeerbaar resultaat)</li>
+            <li>geen aannames bevatten die niet kloppen</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Jij bent de evaluator. AI is de suggestiemachine.</strong>
+        </div>
+    </section>
+
+    <section>
+        <h2>6. Oefening C — AI-feature testen (als systeem)</h2>
+
+        <p>
+            Stel je test een chat/AI-functie. Ontwerp 10 tests rond:
+        </p>
+
+        <ul>
+            <li>consistentie (zelfde vraag, vergelijkbaar antwoord?)</li>
+            <li>veiligheid (geen gevoelige info lekken)</li>
+            <li>bias (werkt het eerlijk?)</li>
+            <li>grensgevallen (rare input, taalmix, sarcasme)</li>
+            <li>uitlegbaarheid (waarom dit antwoord?)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>7. Deliverable</h2>
+
+        <ul>
+            <li>8 testcases (gekozen uit AI-voorstel + jouw motivatie)</li>
+            <li>5 “AI-ideeën gecontroleerd” (wat klopte wel/niet?)</li>
+            <li>10 tests voor een hypothetische AI-feature</li>
+            <li>Reflectie: “Waar vertrouw ik AI wel/niet?”</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>8. Reflectie</h2>
+        <ol>
+            <li>Waar werd AI nuttig voor snelheid?</li>
+            <li>Waar maakte AI jou bijna slordig?</li>
+            <li>Wat is jouw regel: wanneer altijd zelf verifiëren?</li>
+        </ol>
+    </section>
+
+    <nav class="module-navigation">
+        <a href="{{ url_for('exercises.een_module6') }}">← Vorige module</a>
+        <a class="next-module" href="{{ url_for('exercises.een_overview') }}">Terug naar overzicht →</a>
+    </nav>
+<div>
+
+{% endblock %}

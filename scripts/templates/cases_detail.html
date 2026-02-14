@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}{{ tc.key }}{% endblock %}
+
+{% block content %}
+<h1>{{ tc.key }} — {{ tc.title }}</h1>
+
+<p><strong>Module:</strong> {{ tc.module or "-" }}</p>
+<p><strong>Priority:</strong> {{ tc.priority or "-" }}</p>
+<p><strong>Tags:</strong> {{ tc.tags or "-" }}</p>
+
+{% if tc.description %}
+  <h2>Beschrijving</h2>
+  <p>{{ tc.description }}</p>
+{% endif %}
+
+<h2>Precondities</h2>
+{% if tc.preconditions %}
+  <ul>
+    {% for p in tc.preconditions %}
+      <li>{{ p.text }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>-</p>
+{% endif %}
+
+<h2>Stappen</h2>
+<ol>
+  {% for s in steps %}
+    <li>
+      <strong>Actie:</strong> {{ s.action }}<br>
+      <strong>Expected:</strong> {{ s.expected or "-" }}
+    </li>
+  {% endfor %}
+</ol>
+
+<p><a href="{{ url_for('scripts.cases_list') }}">← terug naar lijst</a></p>
+{% endblock %}

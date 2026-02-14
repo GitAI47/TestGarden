@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% block title %}Module 9 – Eindproject{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 9" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('instructions.testen_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 9 – Eindproject</h1>
+
+    <p class="intro">
+        Dit is het moment waarop alle kennis uit de Testgarden samenkomt.
+        Je gaat een compleet testtraject uitvoeren zoals professionele testers dat doen:
+        van testplan tot bugreports, en van exploratory testing tot presentatie.
+    </p>
+
+
+
+    <!-- --- OVERZICHT ----------------------------------------------------------- -->
+    <section>
+        <h2>1. Doel van het Eindproject</h2>
+
+        <p>
+            Het eindproject laat zien dat je:
+        </p>
+
+        <ul>
+            <li>gestructureerd kunt werken als tester</li>
+            <li>risico’s kunt herkennen en prioriteren</li>
+            <li>testcases kunt ontwerpen en uitvoeren</li>
+            <li>exploratory testing beheerst</li>
+            <li>duidelijke bugreports kunt schrijven</li>
+            <li>API’s kunt testen</li>
+            <li>(optioneel) automatisering kunt toepassen</li>
+            <li>professioneel kunt presenteren</li>
+        </ul>
+
+        <p>
+            Je werkt in een klein team of individueel, afhankelijk van de instructie.
+        </p>
+    </section>
+
+
+
+    <!-- --- PROJECTOPDRACHT ----------------------------------------------------- -->
+    <section>
+        <h2>2. Projectopdracht</h2>
+
+        <p>
+            Je gaat een demo-applicatie testen die de docent beschikbaar stelt.
+            Dit kan een webshop, een invoerformulier, een mini-API of een combinatie zijn.
+        </p>
+
+        <h3>Je levert uiteindelijk een compleet testdossier bestaande uit:</h3>
+
+        <ul class="checklist">
+            <li>[ ] Een testplan van 1 pagina</li>
+            <li>[ ] 8–12 testcases (met technieken)</li>
+            <li>[ ] Een uitgevoerde smoke test</li>
+            <li>[ ] Een 60-minuten exploratory session report</li>
+            <li>[ ] Minimaal 5 bugreports</li>
+            <li>[ ] 4–6 API checks</li>
+            <li>[ ] (Optioneel) Een geautomatiseerde test met Playwright/Selenium</li>
+            <li>[ ] Een korte presentatie aan de klas</li>
+        </ul>
+    </section>
+
+
+
+    <!-- --- DE DELIVERABLES ----------------------------------------------------- -->
+    <section>
+        <h2>3. Deliverables (wat je moet inleveren)</h2>
+
+        <h3>1) Testplan (1 pagina)</h3>
+        <p>
+            Gebruik het template uit Module 3.  
+            Zorg dat risico’s en scope helder zijn.
+        </p>
+
+        <h3>2) Testcases</h3>
+        <p>
+            Lever 8–12 testcases op, waarvan minimaal:
+        </p>
+        <ul>
+            <li>2 gebaseerd op Equivalence Partitioning</li>
+            <li>2 gebaseerd op Boundary Value Analysis</li>
+            <li>2 gebaseerd op Decision Tables of State Transitions</li>
+        </ul>
+
+        <h3>3) Smoke Test</h3>
+        <p>
+            Voer een eigen smoke test uit en noteer: Pass/Fail + GO/NO-GO.
+        </p>
+
+        <h3>4) Exploratory Testing (session report)</h3>
+        <p>
+            60 minuten testen + een duidelijk verslag.  
+        </p>
+
+        <h3>5) Bugreports</h3>
+        <p>
+            Minimaal 5 bugreports volgens het template uit Module 6.
+        </p>
+
+        <h3>6) API Tests</h3>
+        <p>
+            Lever 4–6 API checks aan met:
+        </p>
+        <ul>
+            <li>endpoint</li>
+            <li>input</li>
+            <li>statuscode</li>
+            <li>body</li>
+            <li>bevindingen</li>
+        </ul>
+
+        <h3>7) Optioneel: Automatisering</h3>
+        <p>
+            Maak één geautomatiseerde test (bijvoorbeeld: login).
+        </p>
+
+        <h3>8) Presentatie</h3>
+        <p>
+            Korte presentatie (5–10 min) waarin je laat zien:
+        </p>
+        <ul>
+            <li>je testaanpak</li>
+            <li>de belangrijkste risico’s</li>
+            <li>de top 3 bugs die je hebt gevonden</li>
+            <li>wat je geleerd hebt</li>
+        </ul>
+
+    </section>
+
+
+
+    <!-- --- SUGGESTIES ---------------------------------------------------------- -->
+    <section>
+        <h2>4. Tips voor succes</h2>
+
+        <div class="tip-box">
+            <strong>Organiseer je tijd:</strong> verdeel de onderdelen in kleine blokjes.
+        </div>
+        <div class="tip-box">
+            <strong>Denk kritisch:</strong> waarom is dit bugged? Wat is de impact?
+        </div>
+        <div class="tip-box">
+            <strong>Test op verschillende manieren:</strong> testcases, exploratory, API — alles telt.
+        </div>
+        <div class="tip-box">
+            <strong>Laat elkaar elkaars werk uitvoeren:</strong> dat vindt altijd extra fouten.
+        </div>
+        <div class="tip-box">
+            <strong>Maak screenshots:</strong> bewijs is belangrijk.
+        </div>
+    </section>
+
+
+
+    <!-- --- REFLECTIE ---------------------------------------------------------- -->
+    <section>
+        <h2>5. Reflectie</h2>
+
+        <p>
+            Denk na wanneer je klaar bent:
+        </p>
+
+        <ul>
+            <li>Welke technieken heb je het meest gebruikt?</li>
+            <li>Welke skill wil je verder ontwikkelen?</li>
+            <li>Wat heb je ontdekt over testerswerk?</li>
+            <li>Waar ben je het meest trots op?</li>
+        </ul>
+
+    </section>
+
+
+
+    <!-- --- NAVIGATIE ----------------------------------------------------------- -->
+    <nav class="module-navigation">
+    <a href="{{ url_for('instructions.testen_module8') }}">← Vorige module</a>
+
+
+    <a class="next-module" href="{{ url_for('core.index') }}">
+    🏡 Terug naar de TestGarden
+    </a>
+    </nav>
+<div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Module 1 – Titel module 1{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 1" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('instructions.mapnaam_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+    <!-- --- Inhoud komt hieronder ------------------------------------------------------------ -->
+
+    
+
+   <!-- --- Inhoud eidigt hier ------------------------------------------------------------ -->
+
+    <!-- --- NAVIGATIE ------------------------------------------------------------ -->
+    <nav class="module-navigation">
+    <a href="{{ url_for('instructions.mapnaam_overview') }}">← Terug naar overzicht</a>
+
+    <a class="next-module" href="{{ url_for('instructions.mapnaam_module2') }}">
+    Volgende module →
+    </a>
+    </nav>
+<div>
+
+{% endblock %}

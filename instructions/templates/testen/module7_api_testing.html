@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+{% block title %}Module 7 – API Testing{% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 7" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('instructions.testen_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 7 – API Testing</h1>
+
+    <p class="intro">
+        In deze module leer je de basis van API Testing. 
+        Veel software bestaat uit onderdelen die via API’s met elkaar praten.
+        Als tester kun je deze API’s direct controleren met tools zoals Postman.
+        Dat maakt je testwerk sneller, preciezer en veel krachtiger.
+    </p>
+
+
+
+    <!-- --- WAT IS API --------------------------------------------------------- -->
+    <section>
+        <h2>1. Wat is een API?</h2>
+
+        <p>
+            API staat voor <strong>Application Programming Interface</strong>.
+            Het is een manier waarop verschillende onderdelen van software met elkaar communiceren.
+        </p>
+
+        <p>
+            Als je een API test, controleer je:
+        </p>
+        <ul>
+            <li>wat er gebeurt wanneer je data opvraagt (GET)</li>
+            <li>wat er gebeurt wanneer je data verstuurt (POST/PUT)</li>
+            <li>of er correcte foutmeldingen zijn</li>
+            <li>of de structuur van het antwoord klopt</li>
+            <li>of de responstijd in orde is</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Voorbeeld</h3>
+            <p>
+                Een app stuurt via een API het verzoek:  
+                “Geef mij alle producten uit de categorie ‘boeken’.”
+                <br>
+                De server stuurt een lijst terug in de vorm van JSON.
+            </p>
+        </div>
+    </section>
+
+
+
+    <!-- --- STATUSCODES --------------------------------------------------------- -->
+    <section>
+        <h2>2. HTTP Statuscodes</h2>
+
+        <p>
+            Wanneer je een API-aanroep doet, krijg je altijd een statuscode terug.
+            Deze vertelt of de aanvraag gelukt is of niet.
+        </p>
+
+        <ul>
+            <li><strong>200</strong> – OK (alles ging goed)</li>
+            <li><strong>201</strong> – Created (nieuwe data aangemaakt)</li>
+            <li><strong>400</strong> – Bad Request (de client doet iets verkeerd)</li>
+            <li><strong>401</strong> – Unauthorized (geen toegang)</li>
+            <li><strong>404</strong> – Not Found (bestemming bestaat niet)</li>
+            <li><strong>500</strong> – Server Error (fout in de backend)</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong> Als je een 500 krijgt, is dat bijna altijd een serverfout —
+            en dus een belangrijke bug.
+        </div>
+    </section>
+
+
+
+    <!-- --- JSON --------------------------------------------------------------- -->
+    <section>
+        <h2>3. JSON: De taal van API’s</h2>
+
+        <p>
+            De meeste API’s sturen data terug in <strong>JSON</strong> formaat.
+            Dat ziet eruit als gestructureerde tekst.
+        </p>
+
+<pre class="code-block">
+{
+  "id": 42,
+  "name": "Testproduct",
+  "price": 9.99
+}
+</pre>
+
+        <p>
+            Tijdens het testen controleer je:
+        </p>
+        <ul>
+            <li>staan alle velden erin?</li>
+            <li>kloppen de waardes?</li>
+            <li>zit er onverwachte data in?</li>
+        </ul>
+    </section>
+
+
+
+    <!-- --- POSTMAN ------------------------------------------------------------ -->
+    <section>
+        <h2>4. API’s testen met Postman</h2>
+
+        <p>
+            <strong>Postman</strong> is een gratis tool waarmee je eenvoudig API-aanvragen kunt doen.
+        </p>
+
+        <p>Je kunt bijvoorbeeld testen:</p>
+        <ul>
+            <li>of een endpoint bestaat</li>
+            <li>of een API correct reageert op foutieve input</li>
+            <li>hoe snel de server reageert</li>
+            <li>of JSON-schema’s kloppen</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Basisaanvraag in Postman</h3>
+            <ol>
+                <li>Open Postman</li>
+                <li>Kies: GET</li>
+                <li>Vul URL in: <code>https://example.com/api/products</code></li>
+                <li>Klik op “Send”</li>
+                <li>Bekijk statuscode, headers en body</li>
+            </ol>
+        </div>
+    </section>
+
+
+
+    <!-- --- CHECKLIST ---------------------------------------------------------- -->
+    <section>
+        <h2>5. Basis API-checklist</h2>
+
+        <p>
+            Gebruik deze checklist bij het testen van API’s:
+        </p>
+
+        <ul class="checklist">
+            <li>[ ] Bestaat het endpoint (geen 404)?</li>
+            <li>[ ] Reageert het correct op goede input (200/201)?</li>
+            <li>[ ] Reageert het correct op foute input (400)?</li>
+            <li>[ ] Is de structuur van de JSON correct?</li>
+            <li>[ ] Kloppen de waardes inhoudelijk?</li>
+            <li>[ ] Reageert het snel genoeg?</li>
+        </ul>
+    </section>
+
+
+
+    <!-- --- PRAKTIJKOPDRACHT --------------------------------------------------- -->
+    <section>
+        <h2>6. Praktijkopdracht: 6 API-checks</h2>
+
+        <p>
+            Je gaat nu zelf zes API-tests uitvoeren met Postman.
+        </p>
+
+        <h3>Opdracht</h3>
+        <ol>
+            <li>Kies een openbaar API-endpoint of de demo-API van de docent.</li>
+            <li>Voer drie <strong>positieve</strong> tests uit (bijvoorbeeld geldige GET-aanvragen).</li>
+            <li>Voer drie <strong>negatieve</strong> tests uit (bijvoorbeeld foutieve input).</li>
+            <li>Noteer:
+                <ul>
+                    <li>statuscode</li>
+                    <li>response time</li>
+                    <li>response body</li>
+                </ul>
+            </li>
+            <li>Beschrijf eventuele afwijkingen of bugs.</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>  
+            Foutcodes zijn niet “fouten” — ze zijn vaak juist een teken dat de API netjes reageert.
+        </div>
+    </section>
+
+
+
+    <!-- --- REFLECTIE ---------------------------------------------------------- -->
+    <section>
+        <h2>7. Reflectie</h2>
+
+        <ul>
+            <li>Welke statuscodes zag je het meest?</li>
+            <li>Was de API voorspelbaar of verrassend?</li>
+            <li>Welke negatieve test leverde de interessantste reactie op?</li>
+            <li>Waar zou jij een beveiligingsrisico vermoeden?</li>
+        </ul>
+
+    </section>
+
+
+
+    <!-- --- NAVIGATIE ----------------------------------------------------------- -->
+    <nav class="module-navigation">
+    <a href="{{ url_for('instructions.testen_module6') }}">← Vorige module</a>
+
+
+    <a class="next-module" href="{{ url_for('instructions.testen_module8') }}">
+    Volgende module →
+    </a>
+    </nav>
+<div>
+
+{% endblock %}

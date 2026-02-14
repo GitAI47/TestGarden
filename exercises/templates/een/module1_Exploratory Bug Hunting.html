@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block title %}Module 1 – Exploratory Bug Hunting (met oefensites){% endblock %}
+
+{% block content %}
+
+<div class="module-container">
+    {% set module_title = "module 1" %}
+
+    <nav class="breadcrumb">
+        <a href="{{ url_for('exercises.een_overview') }}">softwaretesten</a>
+        <span>/</span>
+        <span>{{ module_title }}</span>
+    </nav>
+
+    <h1>Module 1 — Exploratory Bug Hunting (met oefensites)</h1>
+
+    <p class="intro">
+        In deze module ga je meteen <strong>doen</strong>.
+        Je oefent met exploratory testing: doelgericht verkennen, hypotheses vormen,
+        en je bevindingen omzetten in een helder bug report.
+    </p>
+
+    <section>
+        <h2>1. Werkwijze: charters (kort en krachtig)</h2>
+        <p>
+            Exploratory testing werkt prettig met een <strong>charter</strong>: een mini-missie van 10–20 minuten.
+            Je test niet “alles”, maar je onderzoekt één aspect grondig.
+        </p>
+
+        <div class="tip-box">
+            <strong>Charter-formule:</strong><br>
+            “Onderzoek <em>X</em> om risico’s rond <em>Y</em> te vinden, met focus op <em>Z</em>.”
+        </div>
+
+        <ul>
+            <li>Werk in blokken van 15 minuten</li>
+            <li>Maak notities + screenshots</li>
+            <li>Schrijf na afloop 1 bug report (kwaliteit boven kwantiteit)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Oefensite A: The Internet (UI test-klassieker)</h2>
+
+        <p>
+            Site: <a href="https://the-internet.herokuapp.com/" target="_blank" rel="noopener">the-internet.herokuapp.com</a>
+        </p>
+
+        <h3>Charter A1 — Formuliergedrag & foutafhandeling</h3>
+        <ol>
+            <li>Open <strong>Form Authentication</strong>.</li>
+            <li>Test minimaal 6 varianten: lege velden, alleen user, alleen password, vreemde tekens, spaties, heel lange input.</li>
+            <li>Let op: feedbacktekst, consistentie, UX, en of de app “stabiliteit” verliest.</li>
+        </ol>
+
+        <h3>Charter A2 — Alerts & edge cases</h3>
+        <ol>
+            <li>Open <strong>JavaScript Alerts</strong>.</li>
+            <li>Test: OK/Cancel/lege prompt/heel lange prompt/emoji’s.</li>
+            <li>Beschrijf wat “verwacht gedrag” is en wat je feitelijk ziet.</li>
+        </ol>
+
+        <div class="example-box">
+            <h3>Tip</h3>
+            <p>
+                Als je “geen bug” vindt, is dat óók data: noteer dan wat je getest hebt en waarom je denkt dat het solide is.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Oefensite B: ParaBank (realistische flow)</h2>
+
+        <p>
+            Site: <a href="https://parabank.parasoft.com/parabank/index.htm" target="_blank" rel="noopener">parabank.parasoft.com</a>
+        </p>
+
+        <h3>Charter B1 — Registreren & inloggen</h3>
+        <ol>
+            <li>Registreer een account (maak desnoods een “throwaway” gebruikersnaam).</li>
+            <li>Test: wachtwoordregels, foutmeldingen, en of je duidelijk teruggeleid wordt.</li>
+            <li>Log uit/in en kijk of de sessie logisch werkt.</li>
+        </ol>
+
+        <h3>Charter B2 — Geld overmaken & validatie</h3>
+        <ol>
+            <li>Doe een transfer met een “normaal” bedrag.</li>
+            <li>Test daarna: 0, negatief bedrag, extreem hoog bedrag, decimalen, vreemde tekens.</li>
+            <li>Let op: validatie, afronding, en of de UI en het saldo hetzelfde vertellen.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>4. Oefensite C: Buggy Cars Rating (bug reports oefenen)</h2>
+
+        <p>
+            Site: <a href="https://buggy.justtestit.org/" target="_blank" rel="noopener">buggy.justtestit.org</a>
+        </p>
+
+        <h3>Charter C1 — Data, sortering en reproduceerbaarheid</h3>
+        <ol>
+            <li>Maak een account en log in.</li>
+            <li>Verken: ranking, filters, navigatie, detailpagina’s.</li>
+            <li>Zoek 1 issue dat je <strong>consistent</strong> kunt reproduceren (liefst 3x).</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>5. Bug report sjabloon (copy/paste)</h2>
+
+        <div class="example-box">
+            <h3>Bug Report</h3>
+            <ul>
+                <li><strong>Titel:</strong> Kort + concreet (wat/waar/wat gaat mis)</li>
+                <li><strong>Omgeving:</strong> Browser + versie, OS</li>
+                <li><strong>Stappen:</strong> 1..n (super precies)</li>
+                <li><strong>Verwacht:</strong> Wat zou moeten gebeuren</li>
+                <li><strong>Actueel:</strong> Wat gebeurt er echt</li>
+                <li><strong>Bewijs:</strong> Screenshot/console/network (wat relevant is)</li>
+                <li><strong>Impact:</strong> Hoe erg + wie raakt dit</li>
+            </ul>
+        </div>
+
+        <p>
+            Kies vandaag <strong>één</strong> bevinding en schrijf die zo goed mogelijk uit.
+        </p>
+    </section>
+
+    <section>
+        <h2>6. Reflectie (2 minuten)</h2>
+        <ol>
+            <li>Wat was je beste hypothese?</li>
+            <li>Waar verloor je tijd — en waarom?</li>
+            <li>Welke “naamfout/routefout” in je hoofd (assumptie) bleek niet te kloppen?</li>
+        </ol>
+    </section>
+
+    <nav class="module-navigation">
+        <a href="{{ url_for('exercises.een_overview') }}">← Terug naar overzicht</a>
+        <a class="next-module" href="{{ url_for('exercises.een_module2') }}">Volgende module →</a>
+    </nav>
+<div>
+
+{% endblock %}
